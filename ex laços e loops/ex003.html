@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Dados</title>
+    <script>
+        function validacao(){
+            let nome = ''
+            let idade = ''
+            let salario = ''
+            let sexo = ''
+            let estado = ''
+
+            do{
+                nome = String(prompt('Nome: '))
+                if(nome.length < 3)
+                    alert('Nome inválido! Adicione mais de 3 caracteres.')
+            }while(nome.length < 3)
+            
+            do{
+                idade = Number(prompt('Idade: '))
+                if(idade <= 0 || idade >= 150 || isNaN(idade))
+                    alert('Idade inválida! Adicione uma idade entre 0 e 150 anos.')
+            }while(idade <= 0 || idade >= 150)
+
+            do{
+                salario = Number(prompt('Salário: '))
+                if(salario <= 0 || isNaN(salario))
+                    alert('Salário Inválido! Adicione um valor maior que 0.')
+            }while(salario <= 0)
+        
+            do {
+                sexo = prompt('Sexo [F] ou [M]: ').toLowerCase()
+                if(sexo != 'f' && sexo != 'm')
+                    alert('Sexo inválido! Digite [F] para Feminino ou [M] para Masculino.')
+            } while(sexo != 'f' && sexo != 'm')
+
+            do{
+                estado = prompt('Estado Civil [S; C; V, D]:').toLowerCase()
+                if(estado != 's' && estado != 'c' && estado != 'v' && estado != 'd')
+                    alert('Estado  Civil inválido! Digite: \n [S] para Solteiro(a)\n [C] para Casado(a)\n [V] para Viúvo(a)\n [D] para Divorciado(a)')
+            } while(estado != 's' && estado != 'c' && estado != 'v' && estado != 'd')
+            
+            alert('Dados válidados com sucesso!')
+        }
+    </script>
+</head>
+<body>
+    <script>validacao()</script>
+</body>
+</html>

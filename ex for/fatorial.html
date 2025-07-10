@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial</title>
+    <script>
+        function fatorar(){
+            let n = document.getElementById('num').value
+            let res = document.getElementById('res')
+            
+            let fatorial = 1
+            let passos = ''
+
+            for(let i = n; i >= 1; i--){
+                fatorial *= i // 1*5 = 5 ; 5*4=20; 20* 3= 60; 60*2=120; 120 * 1 =120 
+               passos += (i  >1) ? `${i} x ` : `${i} =`
+            }
+            res.innerHTML = `${n}! = ${passos}${fatorial}`
+        }
+    </script>
+</head>
+<body>
+    <h1>Fatorial</h1>
+    Digite um número: <input type="number" name="num" id="num"><br>
+    <button onclick="fatorar()">Fatorar</button>
+    <hr>
+    <div id="res"></div>
+</body>
+</html>

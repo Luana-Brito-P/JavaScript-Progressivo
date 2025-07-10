@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleições</title>
+    <script>
+
+        function votar() {
+
+            var idade = parseInt(document.getElementById('idade').value);
+            if (idade < 16) {
+                alert('Você ainda não pode votar')
+            } else {
+                if(idade < 18){
+                    alert('Seu voto é facultativo')
+                } else {
+                    if(idade > 65){
+                        alert('Seu voto é facultativo')
+                    } else {
+                        alert('Seu voto é obrigatótio')
+                    }
+                }
+            }
+
+        }
+           
+    </script>
+</head>
+<body>
+    <p>
+        Idade: <input type="number" name="idade" id="idade"> <button onclick="votar()">Ok</button> <br>
+    </p>
+    
+</body>
+</html>

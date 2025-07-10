@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteiro ou Real?</title>
+    <script>
+        function analisar(){
+            let num = Number(document.getElementById('num').value)
+            let res = document.getElementById('res')
+
+            if(Number.isInteger(num)){
+                res.innerHTML = 'O número é inteiro'
+            } else{
+                res.innerHTML = 'O número é decimal'
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Inteiro ou Real?</h1>
+    <hr>
+    Digite um número: <input type="number" id="num">
+    <button onclick="analisar()">Analisar</button>
+    <div id="res"></div>
+</body>
+</html>

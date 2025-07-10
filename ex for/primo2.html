@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primos</title>
+    <script>
+        function primo(){
+            let n1 = document.getElementById('num1').value
+            let ult = document.getElementById('ult').value
+            let res = document.getElementById('res')
+            let texto = ''
+
+            for(let i = n1; i <= ult; i++){//contador de inicio ao fim definidos
+                let divisores = 0
+                for(let i2 = 1; i2 <= i; i2++){//teste se é primo; i2<=i (faz um teste pra saber se chegou ao fim)
+                    if(i % i2 == 0){
+                        divisores++
+                    }     
+                }  
+                if(divisores === 2){ // se for primo
+                    res.innerHTML  += `${i}<br>`
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+   <h1>Primos</h1>
+   Digite o número de início: <input type="number" id="num1"> <br>
+   Digite o último número: <input type="number" id="ult"><br>
+   <button onclick="primo()">Enviar</button>
+   <hr>
+   <h3>Resultado:</h3>
+   <div id="res"></div>
+</body>
+</html>

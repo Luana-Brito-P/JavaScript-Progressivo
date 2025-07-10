@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior ou menor</title>
+    <style>
+        body{
+            font: 500 12pt Arial, Helvetica, Sans-Serif;
+        }
+    </style>
+    <script>
+
+        function maior() {
+            let n1 = parseInt(document.getElementById("n1").value)
+            let n2 = parseInt(document.getElementById("n2").value)
+            let n3 = parseInt(document.getElementById("n3").value)
+
+            let maior = n1
+
+            if(n2 > maior) 
+                maior = n2
+            if(n3 > maior)
+                maior = n3
+            
+            alert(`Maior: ${maior}`)
+        }
+
+        function menor() {
+            let n1 = parseInt(document.getElementById("n1").value)
+            let n2 = parseInt(document.getElementById("n2").value)
+            let n3 = parseInt(document.getElementById("n3").value)
+
+            let menor = n1
+
+            if(n2 < menor)
+                menor = n2
+            if(n3 < menor)
+                menor = n3
+
+            alert(`Menor: ${menor}`)
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Maior ou menor</h1>
+    <hr>
+    Número 1: <input type="number" name="n1" id="n1"> <br>
+    Número 2: <input type="number" name="n2" id="n2"> <br>
+    Número 3: <input type="number" name="n3" id="n3"> <br>
+    <button onclick="maior()">Maior</button> 
+    <button onclick="menor()">Menor</button>
+</body>
+</html>

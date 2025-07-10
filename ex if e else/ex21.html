@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interrogatório</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button {
+            margin-left: 420px;
+            width: 70px;
+            height: 30px;
+        }
+    </style>
+    <script>
+        function enviar(){
+            let tel = document.querySelector('input[name="tel"]:checked').value
+            let local = document.querySelector('input[name="local"]:checked').value
+            let mora = document.querySelector('input[name="mora"]:checked').value
+            let devia = document.querySelector('input[name="devia"]:checked').value
+            let trab = document.querySelector('input[name="trab"]:checked').value
+            let res = document.getElementById('res')
+
+            let list = [tel, local, mora, devia, trab]
+            let p_sim = 0
+            let classi
+            
+            for (let i = 0; i < list.length; i++){
+                if (list[i] === 'sim'){
+                    p_sim++
+                }
+            }
+            
+            if (p_sim <= 2){
+                res.innerHTML = `Indivíduo classificado como <strong>Suspeito</strong>`
+            } else if(p_sim <= 4){
+                res.innerHTML = `Indivíduo classificado como <strong>Cúmplice</strong>`
+            } else if(p_sim == 5){
+                res.innerHTML = `Indivíduo classificado como <strong>Assasino</strong>`
+            } else {
+                res.innerHTML = `Indivíduo classificado como <strong>Inocente</strong>`
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Interrogatório</h1>
+    <hr>
+    <p>Telefonou para a vítima?</p>
+    <input type="radio" name="tel" id="tel" value="sim">Sim <br>
+    <input type="radio" name="tel" id="tel" value="nao">Não <br>
+
+    <p>Esteve no local do crime?</p>
+    <input type="radio" name="local" id="local" value="sim">Sim <br>
+    <input type="radio" name="local" id="local" value="nao">Não <br>
+
+    <p>Mora perto da vítima?</p>
+    <input type="radio" name="mora" id="mora" value="sim">Sim <br>
+    <input type="radio" name="mora" id="mora" value="nao">Não <br>
+
+    <p>Devia para a vítima</p>
+    <input type="radio" name="devia" id="devia" value="sim">Sim <br>
+    <input type="radio" name="devia" id="devia" value="nao">Não <br>
+
+    <p>Já trabalhou com a vítima?</p>
+    <input type="radio" name="trab" id="trab" value="sim">Sim <br>
+    <input type="radio" name="trab" id="trab" value="nao">Não <br>
+    <button onclick="enviar()">Enviar</button>
+
+    <hr>
+     
+    Resposta:
+    <div id="res"></div>
+</body>
+</html>

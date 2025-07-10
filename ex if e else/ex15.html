@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            margin: 1px;
+        }
+
+    </style>
+    <script>
+        function validar() {
+            let dia = parseInt(document.getElementById("dia").value)
+            let mes = parseInt(document.getElementById("mes").value)
+            let ano = parseInt(document.getElementById("ano").value)
+            let res = document.getElementById('res')
+
+         /*Para começar a validação, analisaremos o mês, e cada mes tem seus respectivos dias 
+
+        31 dias: 1, 3, 5, 7, 8, 10 e mês 12
+        30 dias: 4, 6, 9 e mês 11
+        29 dias: mês 2 em anos bissextos
+        28 dias:  mês 2 em anos não bissextos
+         */
+
+            switch(mes){
+
+                //31dias
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    if(dia <= 31)
+                        res.innerHTML = 'Data válida'
+                    else //se for maior é inválido
+                        res.innerHTML = "Inválido (mês com mais de 31 dias)"
+                
+                // 30dias
+                case 4: case 6: case 9: case 11: 
+                    if(dia <= 30)
+                        res.innerHTML = 'Data válida'
+                    else 
+                        res.innerHTML = 'Inválido (mês com mais de 30 dias)'
+                
+                //29dias se bissexto e 28dias n bissexto
+                case 2:
+                    if(ano % 4 == 0 && ano % 100 != 0 || ano % 4 == 0 && ano % 100 == 0 && ano % 400 == 0){
+                        //29dias
+                        if(dia <= 29)
+                            res.innerHTML = 'Data válida'
+                        else
+                            res.innerHTML = 'Inválido (mês com mais de 29 dias)'
+                    } else{
+                        //28dias
+                        if(dia <= 28)
+                            innerHTML = 'Data válida'
+                        else
+                            res.innerHTML = 'Inválido (mês com mais de 28 dias)'
+                    }
+            }
+        }
+      
+    </script>
+</head>
+<body>
+    <h1>Validando data</h1>
+    <hr>
+    Digite sua data de nascimento: <br>
+    Dia: <input type="number" id="dia"> <br>
+    Mês: <input type="number" id="mes"> <br>
+    Ano: <input type="number" id="ano"> <br>
+    <button onclick="validar()">Validar</button> <br>
+    Resposta:
+    <div id="res">
+        
+    </div>
+    <hr>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function entrar(){
+            let senha = ''
+
+            do{
+                senha = prompt('Digite sua senha: ')
+
+                if(senha == '1234'){
+                    alert('Entrando no sistema...')
+                } else{
+                    alert('Senha inválida, Tente novamente!')
+                }
+            } while(senha != '1234')
+        }
+    </script>
+</head>
+<body>
+    <button onclick="entrar()">Entrar</button>
+</body>
+</html>

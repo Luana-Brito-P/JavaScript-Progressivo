@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogal ou consoante?</title>
+    <script>
+        function analisar(){
+            let letra = document.getElementById('letra').value.toUpperCase()
+            
+            // Verificando quantidade de caractere
+            if (letra.length > 1){
+                alert('[ERROR] Digite apenas UM caratere')   
+            }else {
+                if (!/^[A-Z]$/.test(letra)){ // verificando se é uma letra com RegEx /^[a-zA-z]$/.test(variável)
+                alert('[ERROR] Digite uma LETRA')
+                } else { // caso for uma letra faça ...
+                    if (letra == "A" || letra == "E" || letra == "I" || letra == "O" || letra == "U") {
+                        alert(`A letra ${letra} é uma vogal`)
+                    } else{
+                        alert(`A letra ${letra} é uma consoante`)  
+                    }
+                }
+            }
+        }   
+        
+    </script>
+</head>
+<body>
+    Digite uma letra: <input type="text" name="letra" id="letra"> <button onclick="analisar()">Análisar</button>
+</body>
+</html>

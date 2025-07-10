@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let n1 = Number(prompt("Digite o primeiro número: "))
+        let n2 = Number(prompt("Digite o segundo número: "))
+        let soma = n1 + n2
+
+        if(n1 < n2){
+            for(let i = n1 + 1; i <= n2-1; i++){
+                document.write(i + '<br>')
+            }
+            document.write('Soma: '+ soma)
+            
+        }else if(n1 > n2){
+            for(let i = n1 - 1; i >= n2+1; i--){
+                document.write(i + '<br>')
+            }
+            document.write('Soma: '+ soma)
+        }
+        
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

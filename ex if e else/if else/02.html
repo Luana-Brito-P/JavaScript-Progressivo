@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior e Menor</title>
+    <style>
+        input{
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function analisar() {
+            let num1 = Number(document.getElementById('num1').value)
+            let num2 = Number(document.getElementById('num2').value)
+
+            if (num1 > num2){
+                alert(`O ${num1} é maior que ${num2}`)
+            } else if(num1 < num2) {
+                alert(`O ${num2} é maior que ${num1}`)
+            } else {
+                alert('Os números são iguais')
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Maior e menor</h1>
+   número 1:<input type="number" name="num1" id="num1"> <br>
+    número 2:<input type="number" name="num2" id="num2">
+    <button onclick="analisar()">Análisar</button>
+</body>
+</html>

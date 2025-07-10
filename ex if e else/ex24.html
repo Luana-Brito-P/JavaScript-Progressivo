@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hipermercado Tabajara</title>
+    <script>
+        function comprar(){
+            let tipo = Number(document.getElementById('tipo').value)
+            let kg = parseFloat(document.getElementById('qntd').value)
+            let pag = Number(document.getElementById('pag').value)
+            let res = document.getElementById('res')
+            let carne
+            let forma
+            let total
+
+            switch (tipo){
+                case 1: carne = 'Filé Duplo'
+                    if(kg <= 5){
+                        total = 4.9 * kg
+                    } else {
+                        total = 5.8 * kg
+                    }
+                break
+                case 2: carne = 'Alcatra'
+                    if(kg <= 5){
+                        total = 5.9 * kg
+                    } else {
+                        total = 6.8 * kg
+                    }
+                break
+                
+                case 3: carne = 'Picanha'
+                    if(kg <= 5){
+                        total = 6.9 * kg
+                    } else {
+                        total = 7.8 * kg
+                    }
+                break
+                
+                default: alert('Opção de Carne Inválida!\nTente Novamente...')
+                break
+             
+            }
+            
+            switch (pag){
+                case 1: forma = 'Cartão Tabajara'
+                total = total - ((total * 10)/100)
+                break
+
+                case 2: forma = 'Cartão de Crédito'
+                break
+
+                case 3: forma = 'Cartão de Débito'
+                break
+
+                case 4: forma = 'Dinheiro'
+                break
+
+                default: alert('Forma de Pagamento Inválida!\nTente Novamente...')
+                break
+           }
+
+            res.innerHTML = `Cupom Fiscal: <br>Tipo de Carne: ${carne} <br> qntd: ${kg}kg <br> Preço Total: ${total.toFixed(2)} <br> Tipo de Pagamento: ${forma}`
+        }
+    </script>
+</head>
+<body>
+    <h1>Hipermercado Tabajara</h1>
+    <hr>
+    Opções de carne: 
+    <pre>
+    [1]Filé Duplo
+    [2]Alcatra
+    [3]Picanha
+    </pre> 
+Carne: <input type="number" name="tipo" id="tipo" min="1" max="3">
+    
+    <p>Quantidade: <input type="number" name="qntd" id="qntd"> </p>
+
+    Opções de Pagamento: 
+    <pre>
+    [1]Cartão Tabajara
+    [2]Cartão de Crédito
+    [3]Cartão de Débito
+    [4]Dinheiro
+    </pre>
+    Forma de <br> pagamento: <input type="number" name="pag" id="pag" min="1" max="4">
+
+    <button onclick="comprar()">Comprar</button>
+    <hr>
+    <div id="res"></div>
+</body>
+</html>

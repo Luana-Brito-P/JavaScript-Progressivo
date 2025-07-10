@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial</title>
+    <script>
+        let num 
+       
+        let res = ''
+
+            do{
+                let fatorial = 1
+                let passos = ''
+
+                // Do while para a realização do medido de um novo numero
+                do{ 
+                    num = parseInt(prompt('CALCULADORA FATORIAL \n Digite um número: '))
+                }while(isNaN(num) || num < 0 || num > 16) // enquanto for NaN ou menor q 0 ou maior q 16
+
+
+                for(let i = num; i >= 1; i--){ // calculo Fatorial
+                    fatorial *= i
+                    passos += (i >1) ? `${i} x ` : `${i} = `
+                }
+
+                alert(`${num}! =${passos}${fatorial}`) // emissaão dos passos e do resultado
+
+                res = prompt('Deseja calcular outro fatorial? (s/n)').toUpperCase() // pergunta se quer continuar se sim, volta pro começo
+                while(res != 'S' && res != 'N'){ // validação da resposta
+                    res = prompt('Valor inválido! Digite novamente: ').toUpperCase()
+                }
+            }while(res === 'S')// enquanto a resposta for sim
+
+            alert("Programa Finalizado!") // se a resposta for não
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

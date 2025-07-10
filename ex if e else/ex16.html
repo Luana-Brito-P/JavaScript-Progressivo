@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou Ímpar</title>
+    <script>
+        function analisar(){
+            let num = parseInt(document.getElementById('num').value)
+            let res = document.getElementById('res')
+            
+            if(num % 2 == 0)
+                res.innerHTML = 'Par'
+            else
+                res.innerHTML = 'Ímpar'
+        }
+
+        function limpar() {
+            let res = document.getElementById('res')
+            res.innerHTML = ' '
+        }
+    </script>
+</head>
+<body>
+    <h1>Par ou Ímpar?</h1>
+    <hr>
+    <p>Digite um número:<input type="number" id="num" onclick="limpar()"></p>
+    <button onclick="analisar()">Analisar</button> <br>
+    <p>Resposta:</p>
+    <div id="res"></div> <br>
+    <hr>
+</body>
+</html>

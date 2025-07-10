@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triângulos</title>
+    <script>
+
+        function analisar(){
+            let a = Number(document.getElementById('l1').value)
+            let b  = Number(document.getElementById('l2').value)
+            let c = Number(document.getElementById('l3').value)
+            let triangulo
+            let tipo
+
+            if(a == 0 || b == 0 || c == 0)
+                alert("[ERROR] Digite um valor maior que zero...")
+            else{
+                if(((a + b) > c )&& ((a + c) > b) && ((b+ c) > a)){
+                    triangulo = 'È um Triângulo'
+                
+                    if(a == b && b == c && c == a){
+                        tipo = "Equilátero"
+                    } else if(a == b || b == c || c == a){
+                        tipo = "Isósceles"
+                    } else {
+                        tipo = "Escaleno"
+                    }
+
+                alert(triangulo + " do tipo " + tipo)
+                } else {
+                    triangulo = "Não é um Triângulo"
+                alert(triangulo)
+                } 
+            }            
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Isso é um triângulo?</h1>
+    <hr>
+    <p>Digite o valor de cada lado abaixo:</p>
+    Primeiro lado: <input type="number" name="l1" id="l1"><br>
+    Segundo lado: <input type="number" name="l2" id="l2"><br>
+    Terceiro lado: <input type="number" name="l3" id="l3">
+    <button onclick="analisar()">Analisar</button>
+</body>
+</html>

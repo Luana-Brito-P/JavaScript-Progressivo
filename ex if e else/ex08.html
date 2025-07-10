@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+    <script>
+        function calcular(salario, n) {
+            let reaj = salario * n / 100
+            let satual = salario + reaj
+
+            alert(`Salário: R$ ${salario.toFixed(2)}\n Percentual de Aumento: ${n}%\n Aumento: R$ ${reaj.toFixed(2)}\n Novo Salário: R$ ${satual.toFixed(2)}`)
+        }
+        function enviar(){
+           let salario = parseFloat(document.getElementById('salario').value)
+           
+            if(salario <= 280) { //20%
+                calcular(salario, 20)
+               
+            } else if(salario < 700){ //15%
+                calcular(salario, 15)
+
+            } else if(salario < 1500){//10%
+                calcular(salario, 10)
+
+            }else { //5%
+                calcular(salario, 5)
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <hr>
+    Informe o seu salário:
+    <input type="number" name="salario" id="salario"> <button onclick="enviar()">Enviar</button>
+</body>
+</html>

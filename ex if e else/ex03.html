@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function analisar(){
+            let n1 = parseInt(document.getElementById('n1').value)
+            let n2 = parseInt(document.getElementById('n2').value)
+            let n3 = parseInt(document.getElementById('n3').value)
+            
+
+            if(n1 > n2 && n1 > n3) {
+                alert(`${n1} é o maior número`)
+            } else {
+                if(n2 > n1 && n2> n3){
+                    alert(`${n2} é o maior número`)
+                }else{
+                    alert(`${n3} é o maior número`)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Qual é o maior?</h1>
+    <p>Digite três números abaixo:</p>
+
+    N1: <input type="number" name="n1" id="n1"> <br>
+    N2: <input type="number" name="n2" id="n2"> <br>
+    N3: <input type="number" name="n3" id="n3"> 
+    <button onclick="analisar()">Análisar</button>
+</body>
+</html>

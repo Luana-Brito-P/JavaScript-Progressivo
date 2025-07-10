@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisando números</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        fieldset {
+            margin: 20px 0px;
+        }
+    </style>
+    <script>
+        function analisar(){
+            let n1 = Number(document.getElementById('n1').value)
+            let n2 = Number(document.getElementById('n2').value)
+            let opcao = document.querySelector('input[name="opcao"]:checked').value
+            let res = document.getElementById('res')
+            let r1
+            let r2
+            
+            
+            if(opcao == 'poui'){
+              if(n1 % 2 == 0){
+                //par
+                r1 = 'Par'
+              } else {
+                //impar 
+                r1 ='Ímpar'
+              }
+
+              if(n2 % 2 == 0){
+                //par
+                r2 = 'Par'
+              } else {
+                //impar
+                r2 = 'Ímpar'
+              }
+
+              res.innerHTML = `O primeiro número (${n1}) é <strong>${r1} </strong><br> O segundo número (${n2}) é <strong>${r2}</strong>`
+            }
+            
+            if(opcao == 'poun'){
+                if(n1 > 0){
+                    r1 = 'Positivo'
+                }else if(n1 < 0){
+                    r1 = 'Negativo'
+                } else{
+                    r1 = 'Neutro'
+                }
+
+                if(n2 > 0){
+                    r2 = 'Positivo'
+                }else if(n2 < 0){
+                    r2 = 'Negativo'
+                } else{
+                    r2 = 'Neutro'
+                }
+
+                res.innerHTML = `O primeiro número (${n1}) é <strong>${r1} </strong><br> O Segundo número (${n2}) é <strong>${r2}</strong>`
+            }
+            if(opcao == 'ioud'){
+                if(Number.isInteger(n1)){
+                    r1 = "Inteiro"
+                } else {
+                    r1 = 'Decimal'
+                }
+
+                if(Number.isInteger(n2)){
+                    r2 = "Inteiro"
+                } else {
+                    r2 = 'Decimal'
+                }
+
+                res.innerHTML = `O primeiro número (${n1}) é <strong>${r1}</strong> <br> O Segundo número (${n2}) é <strong>${r2}</strong>`
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>Analisando números</h1>
+    <hr>
+    <p>Digite dois números</p>
+    1° Número: <input type="number" id="n1">
+    2° Número: <input type="number" id="n2"> <br>
+    <fieldset>
+        <legend>Operação</legend>
+        <input type="radio" name="opcao" id="poui" value="poui">Par ou Ímpar <br>
+        <input type="radio" name="opcao" id="poun" value="poun">Positivo ou Negativo <br>
+        <input type="radio" name="opcao" id="ioud" value="ioud">Inteiro ou Decimal <br>
+    </fieldset>
+    <button onclick="analisar()">Analisar</button>
+    <div id="res"></div>
+</body>
+</html>

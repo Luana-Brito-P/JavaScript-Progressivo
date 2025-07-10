@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial</title>
+    <script>
+        let num = Number(prompt('CALCULADORA FATORIAL \n Digite um número: '))
+        let fatorial = 1
+        let passos = ''
+
+        for(let i = num; i >= 1; i--){
+            fatorial *= i
+            //vai adicionar um valor ao fatorial e multiplica esse valor por ele mesmo - 1, ate chegar ao 1
+
+            passos += (i >1) ? `${i} x ` : `${i} = `
+            //se i for maior q 1 adicione o (i x) para multiplicar, se i = a 1 coloque igual pois chegou até o fim
+        }
+
+        document.write(`${num}! =${passos}${fatorial}`)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

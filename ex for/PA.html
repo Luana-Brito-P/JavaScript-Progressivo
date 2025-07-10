@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressão Aritmética</title>
+    <script>
+        function pa(){
+            let valor = Number(document.getElementById('a1').value)
+            let r = Number(document.getElementById('r').value)
+            let tf = Number(document.getElementById('tf').value)
+            let res = document.getElementById('res')
+
+            for(let i = 1; i <= tf; i++){
+                res.innerHTML += `Termo`+i+' = '+ valor+'<br>'
+                valor += r
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Progressão Aritmética</h1>
+    forneça três valores respectivamente
+    <hr>
+    <p title="Termo Inicial">A1: <input type="number" name="a1" id="a1"></p>
+    <p title="Razão">R: <input type="number" name="r" id="r"></p>
+    <p title="Termo Final">TF: <input type="number" name="tf" id="tf"></p>
+    <button onclick="pa()">Enviar</button>
+    <div id="res"></div>
+</body>
+</html>

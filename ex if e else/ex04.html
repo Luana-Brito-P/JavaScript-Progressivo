@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversor</title>
+    <style>
+        body{
+            font: 500 12pt Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        function inverter(){
+            let n1 = parseInt(document.getElementById('n1').value)
+            let n2 = parseInt(document.getElementById('n2').value)
+            
+            let aux = n1
+            n1 = n2
+            n2 = aux
+
+            alert("Antes:\n"+
+                "número 1 = "+document.getElementById('n1').value +"\n"+
+                "número 2 = "+document.getElementById('n2').value+"\n"+
+                "Invertido:\n"+
+                "número 1 = "+n1+"\n"+
+                "número 2 = "+n2+"\n"
+            )
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Inversor de variável</h1>
+    <hr>
+    Primeiro número: <input type="number" name="n1" id="n1"> <br>
+    Segundo número: <input type="number" name="n2" id="n2"> <br>
+    <button onclick="inverter()">Inverter</button>
+</body>
+</html>

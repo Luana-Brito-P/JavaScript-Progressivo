@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função de 2°grau</title>
+    <script>
+
+        function calcular(){
+            let a = Number(document.getElementById("a").value)
+            let b = Number(document.getElementById("b").value)
+            let c = Number(document.getElementById("c").value)
+            let delta
+            let r1
+            let r2
+
+            if(a != 0){ // para ser funçãp de 2 grau
+                delta = b**2 - (4 * a * c)
+
+                if(delta > 0){
+                    //2 raizes
+                    r1 = (-b + Math.sqrt(delta)) / (2 * a)
+                    r2 = (-b - Math.sqrt(delta)) / (2 * a)
+
+                    alert("Essa função tem o delta = " + delta + " e tem duas raízes que valem " + r1 + ' e ' + r2)
+
+                } else if(delta == 0){
+                    //uma raiz
+                    r1 = - b / (2 * a)
+                    alert("Delta é igual a 0, ou seja, tem uma raíz = " + r1)
+                }else {
+                    // n tem raiz
+                    alert('Essa função não há raízes, delta = ' + delta + " menor que zero...") 
+                }
+
+
+            } else{
+                alert('Se a for igual a 0, a função se torna uma equação liner...\nTente Novamente')
+            }
+        }
+</script>
+</head>
+<body>
+    <h1>Raízes</h1>
+    <hr>
+    Dê os valores abaixo para a função f =  ax² + bx + c
+    <br>
+    a = <input type="number" name="" id="a">
+    b = <input type="number" name="" id="b">
+    c = <input type="number" name="" id="c">
+
+    <button onclick="calcular()">Calcular</button>
+</body>
+</html>

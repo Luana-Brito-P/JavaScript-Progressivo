@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turno</title>
+    <style>
+        body{
+            font: normal 12pt Arial, Helvetica, Sans-Serif;
+            
+        }
+        p {
+            margin: 5px;
+            line-height: 22px;
+        }
+    </style>
+    <script>
+        function turno(){
+            let t = document.getElementById('turno').value.toUpperCase()
+
+                if(t == "M") {
+                    t = 1
+                }else if(t == "V") {
+                    t = 2
+                } else if(t == "N"){
+                    t = 3
+                } else{
+                    alert("Caractere Inválido")
+                }
+                
+
+            switch(t) {
+                case 1: alert('Bom Dia!')
+                break
+                case 2: alert('Boa Tarde!')
+                break
+                case 3: alert('Boa Noite!')
+                break
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Turno</h1>
+    <hr>
+    <p>Em qual turno você estuda?</p>
+    <p>Digite para: <br> <strong>[M]</strong> Matutino <br> <strong>[V]</strong> Vespetino <br> <strong>[N]</strong> Noturno <br></p>
+    <input type="text" name="turno" id="turno">
+    <button onclick="turno()">Entrar</button>
+</body>
+</html>

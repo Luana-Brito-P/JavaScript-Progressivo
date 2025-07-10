@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primos</title>
+    <style>
+        h3{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        
+    </style>
+    <script>
+        function primo(){
+            let num = document.getElementById('num').value 
+            let res = document.getElementById('res')
+            let divisores = 0
+
+            for(let i = 1; i <= num; i++){
+                if(num % i == 0) // faz uma divisão com todoas os numeros de 1 ate o num, testando todas as possibilidades de divisão
+                divisores++
+                
+                if(divisores == 2){
+                    res.innerHTML = ' É Primo'
+                    res.style.color = 'green'
+                }else{
+                     res.innerHTML = ' Não é Primo'
+                     res.style.color = 'red'
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Primos</h1>
+    Digite um número: <input type="number" id="num">
+    <button onclick="primo()">Analisar</button>
+    <hr>
+    <h3>Resultado: <div id="res"></div></h3> 
+</body>
+</html>

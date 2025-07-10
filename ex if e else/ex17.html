@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+    <script>
+
+        function limpar() {
+            let res = document.getElementById('res')
+            res.innerHTML = ''
+        }
+
+       function analisar(){
+        let num = parseInt(document.getElementById("num").value) 
+        let res = document.getElementById('res')
+
+        if (num < 0 || num > 1000 || isNaN(num)){
+            res.innerHTML = 'Valor Inválido! <br>Digite um NÚMERO entre 0 e 1000'
+        }else {
+            let milhar = parseInt(num / 1000)
+            let cent = parseInt((num % 1000)/ 100) 
+            let dez = parseInt((num % 100)/10)
+            let uni = parseInt(num % 10)
+
+            res.innerHTML = num + ' = '
+
+            //milhar
+            if(milhar > 0) {
+                res.innerHTML += milhar + ` milhar${milhar > 1 ? 'es ' : ' '}`
+            }
+            
+            //centena
+            if(cent > 0) {
+                res.innerHTML += cent + ` centena${cent > 1 ? 's ' : ' '}`
+            }
+
+            //dezena
+            if(dez > 0) { 
+                res.innerHTML += dez + ` dezena${dez > 1 ? 's ' : ' '}`
+            }
+
+            //unidade
+            if(uni > 0) { res.innerHTML += uni + ` unidade${uni > 1 ? 's ' : ' '}`
+            }
+        }
+        
+        
+       }
+    </script>
+</head>
+<body>
+    <h1>Analisando números</h1>
+    <hr>
+    <p>Digite um número inteiro entre 0 e 1000:</p> <input type="number" id="num" onclick="limpar()">
+    <button onclick="analisar()">Analisar</button> <br>
+    <p>Resposta:
+        <div id="res">
+            <br>
+        </div>
+    </p>
+    <hr>
+</body>
+</html>

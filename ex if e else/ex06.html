@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem Decrescente</title>
+    <style>
+        body{
+            font: normal 12pt Arial, Helvetica, Sans-Serif;
+        }
+        input{
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function ordernar() {
+            let n1 = parseInt(document.getElementById('n1').value)
+            let n2 =parseInt(document.getElementById('n2').value)
+            let n3 = parseInt(document.getElementById('n3').value)
+            let aux = n1
+            
+            // A exibição deve ser n1-n2-n3, do maior pro menor, sendo n1 o maior e n3 o menor
+
+                if(n2 > n1) { 
+                    //REALIZAÇÃO DA TROCA, se n2 for maior q n2, n2 tem q ser n1
+                    aux = n2 // aux recebe o valor de n2
+                    n2 = n1 //  n2 recebe o valor de n1
+                    n1= aux //  n1 recebe p valor de aux q é n2
+                }
+                if(n3 > n1) { // se n3 for maior q n1 troqie eles
+                    aux = n3
+                    n3 = n1
+                    n1 = aux
+                } 
+                if(n3 > n2) { // o maior ja esta definido, mas quem é maior entre eles? se n3 for maior que n2 faça
+                    aux = n3
+                    n3 = n2
+                    n2 = aux
+                }
+            alert(n1 + '-' + n2 + '-' + n3)
+        }
+    </script>
+</head>
+<body>
+    <h1>Ordem Decrescente</h1>
+    <hr>
+    Primeiro Número: <input type="number" name="n1" id="n1"> <br>
+    Segundo Número: <input type="number" name="n2" id="n2"><br>
+    Terceiro Número: <input type="number" name="n3" id="n3"><br>
+    <button onclick="ordernar()">Ordernar</button>
+</body>
+</html>
+
+<!-- REVISÃO
+ Foi determinado que a ordem de exibição será do maior pro menor com n1 - n2 - n3 nessa ordem
+
+ para ordernar, foi realizado um teste pra verificar se o n1 é maior, se n2 for maior, ele trocara o seu valor com n1 utilizando uma variável auxiliar.
+ n2 se tornará n1,
+
+ Além disso existe a possibilidade de n3 ser maior que n1, ocorrerá o mesmo procedimento e n3 se tornará n1
+
+ ou seja
+ se n1 for maior ele permanecerá n1; se n2 for maior ele se tornará n1; se n3 for maior ele se tornará n1;
+
+ Foi realizado o teste para quem deve ser n1, e o n2?
+ é simples, se n2 for maior q n3 ele permanecerá, mas se n3 for maior n2, ele se tornará n2 com o mesmo procedimento
+-->

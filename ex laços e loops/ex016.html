@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    <script>
+        let penultimo = 0
+        let ultimo = 1
+        let proxnum = 0
+
+        document.write(penultimo + '<br>' + ultimo + '<br>')
+        while(proxnum <= 500){
+            proxnum = penultimo + ultimo
+            
+            if(proxnum > 500) break
+
+            document.write(proxnum + '<br>')
+
+            penultimo = ultimo
+            ultimo = proxnum
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

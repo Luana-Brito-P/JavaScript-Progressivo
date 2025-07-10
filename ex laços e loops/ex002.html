@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <script>
+        function cadastro(){
+            let user = ''
+            let senha = ''
+
+            do{
+                user = prompt('Nome de usuário:').toUpperCase()
+                senha = prompt('Senha:').toUpperCase()
+
+                if(senha === user)
+                    alert('[ERROR] A senha não deve ser igual ao usuário')
+            }while(senha === user)
+            
+            alert('Cadastro realizado com sucesso! \n Usuário: ' + user)
+        }
+    </script>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <button onclick="cadastro()">Cadastrar conta</button>
+</body>
+</html>

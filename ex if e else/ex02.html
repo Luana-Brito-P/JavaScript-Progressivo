@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        p {
+            font-size: 13pt;
+        }
+        
+        input {
+            margin: 5px;
+        }
+    </style>
+    <script>
+
+        function calcular(){
+            let n1 = parseFloat(document.getElementById('n1').value)
+            let n2 = parseFloat(document.getElementById('n2').value)
+
+            let media = (n1 + n2) / 2
+
+            if(media == 10){
+                alert(`Media: ${media}. \nAprovado com Distinção.`)
+            } else {
+                if(media >= 7){
+                    alert(`Media: ${media}.\nAprovado.`)
+                }else {
+                    alert(`Média: ${media}.\nReprovado.`)
+                }
+            } 
+            }
+       
+    </script>
+</head>
+<body>
+    <h1>Boletim</h1>
+    <p>Para calcular a sua média adicione as suas notas</p>
+    N1: <input type="number" name="n1" id="n1" min="0" max="10" step="0.1"> <br>
+    N2: <input type="number" name="n2" id="n2"min="0" max="10" step="0.1">
+    <button onclick="calcular()">Calcular</button>
+</body>
+</html>

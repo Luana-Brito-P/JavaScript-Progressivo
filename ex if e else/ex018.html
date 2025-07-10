@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa Eletrônico</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        function limpar(){
+            document.getElementById('valor').value = ''
+            let res = document.getElementById('res')
+            res.innerHTML = ' '
+        }
+        function confirmar(){
+            let valor = Number(document.getElementById('valor').value)
+            let res = document.getElementById('res')
+            let notas = [100, 50, 10, 5, 1]
+            let qnts_notas
+            let resto
+            let cem
+            let cinq
+            let dez
+            let cinco
+            let um
+            
+            if (isNaN(valor)) {
+                res.innerHTML = 'Por favor, digite um valor válido.'
+                return
+            }
+            if(valor < 10 || valor > 600){
+                res.innerHTML = 'Não foi possível realizar o saque. <br> Valor Minímo: R$10<br>Valor Máximo: R$600 '
+                return
+            } else{
+                if(valor >= 100){
+                    qnts_notas = Math.floor(valor / 100)
+                    cem = qnts_notas
+                    resto = valor % 100
+                    valor = resto
+
+                }
+                if(valor >= 50){
+                    qnts_notas = Math.floor(valor / 50)
+                    cinq = qnts_notas
+                    resto = valor % 50
+                    valor = resto
+            
+                }         
+                if(valor >= 10){
+                    qnts_notas = Math.floor(valor / 10)
+                    dez = qnts_notas
+                    resto = valor % 10
+                    valor = resto
+
+                }             
+                if(valor >= 5){
+                    qnts_notas = Math.floor(valor / 5)
+                    cinco = qnts_notas
+                    resto = valor % 5
+                    valor = resto
+
+                }
+                if(valor >= 1){
+                    um = valor
+                                
+                }
+            }
+
+            res.innerHTML = `Saque realizado com sucesso! <br>`
+            
+            if(cem > 0)
+                res.innerHTML += `${cem} nota${cem>1 ? 's':' '} de R$100 <br>`
+            if(cinq > 0)
+                res.innerHTML += `${cinq} nota${cinq>1 ? 's':' '} de R$50 <br>`
+            if(dez > 0)
+                res.innerHTML += `${dez} nota${dez>1 ? 's':' '} de R$10 <br>`
+            if(cinco > 0)
+                res.innerHTML += `${cinco} nota${cinco>1 ? 's':' '} de R$5 <br>`
+            if(um > 0)
+                res.innerHTML += `${um} nota${um>1 ? 's':' '} de R$1 <br>`
+        }
+    </script>
+</head>
+<body>
+    <h1>Caixa Eletrônico</h1>
+    <hr>
+    <p>Valor do saque:</p>
+    <input type="number" id="valor" onclick="limpar()">
+    <button onclick="confirmar()">Confirmar</button>
+    <hr>
+    <div id="res"></div>
+</body>
+</html>

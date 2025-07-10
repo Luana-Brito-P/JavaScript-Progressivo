@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>População</title>
+    <script>
+        function populacao(){
+            let popA  = Number( document.getElementById('popA').value)
+            let popB  = Number( document.getElementById('popB').value)
+            let taxaA = Number( document.getElementById('taxaA').value)  
+            let taxaB = Number( document.getElementById('taxaB').value)  
+            let res = document.getElementById('res')
+            let anos  = 0
+            taxaA /= 100
+            taxaB /= 100
+
+            
+            if(isNaN(popA)|| isNaN(popB) || isNaN(taxaA) || isNaN(taxaB)){
+                alert('Algum valor inválido! Digite um número.')
+                return
+            }
+
+            while(popA < popB){
+                popA += popA * taxaA
+                popB += popB * taxaB
+                anos++
+            }
+        res.innerHTML += `Levará ${anos} anos para a população do país A ultrapassar ou igualar com a do país B.<br>População de A : ${popA}<br>População de B ${popB}`
+                
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de população entre dois países</h1>
+    <p>Adicione a população e taxa de crecimento anual de dois paises (A e B) a seguir...</p>
+    População A: <input type="text" id="popA"><br>
+    População B: <input type="text" id="popB"><br>
+    Taxa de crescimento anual A(%): <input type="text" id="taxaA"><br>
+    Taxa de crescimento anual B(%): <input type="text" id="taxaB"><br>
+    <button onclick="populacao()">Calcular</button>
+    <hr>
+    <h3>Resultado:</h3>
+    <div id="res"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+    <script>
+        function enviar() {
+            let n1 = Number(document.getElementById('n1').value)
+            let n2 = Number(document.getElementById('n2').value)     
+            let m =  (n1 + n2) / 2
+            let c
+            let res
+
+            if(m >= 9){
+                c = "A"
+                res = "APROVADO"
+            } else if(m >= 7.5){
+                c = "B"
+                res = "APROVADO"
+            } else if(m >= 6){
+                c = "C"
+                res = "APROVADO"
+            }else if(m >= 4){
+                c = "D"
+                res = "REPROVADO"
+            } else{
+                c = "E"
+                res = "REPROVADO"
+            }
+
+            alert(`Primeira nota: ${n1} \n Segunda Nota: ${n2} \n Média: ${m} \n Conceito: ${c} \nResultado: ${res}`)
+        
+        }
+    </script>
+</head>
+<body>
+    <h1>Avaliação Semestral</h1>
+    <hr>
+    <p>Adicione a suas notas abaixo:</p>
+    N1 = <input type="number" name="n1" id="n1"> <br>
+    N2 = <input type="number" name="n2" id="n2">
+    <button onclick="enviar()">Enviar</button>
+</body>
+</html>

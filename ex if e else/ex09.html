@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folha de Pagamento</title>
+    <style>
+    body{
+        font: normal 12pt Arial,Helvetica,Sans-Serif;
+    }
+
+    p {
+        margin: 8px;
+    }
+
+    #res {
+        margin-top:30px ;
+    }
+
+    </style>
+    <script>
+        
+        function enviar() {
+            let valorh = Number(document.getElementById('valorh').value)
+            let horas = Number(document.getElementById('horas').value)
+            let res = document.getElementById('res')
+
+            let bruto = valorh * horas
+            let IR
+            let p
+                if(bruto <= 900){
+                     IR = "Isento"
+
+                } else if(bruto <= 1500) {
+                    p = 5/100
+                    IR = bruto * p
+                    
+
+                }else if (bruto <= 2500){
+                    p = 10/100
+                    IR = bruto * p
+
+                }else {
+                    p = 20/100
+                    IR = bruto * p
+
+                }
+            
+            let inss = bruto * 10/100
+            let fgts = bruto * 11/100
+            let desc = IR + inss
+            let liquido = bruto - desc
+
+            res.innerHTML = `Resultado: <br> <pre>
+            Salário Bruto (${valorh} * ${horas})   : R$ ${bruto.toFixed(2)}<br>
+            (-)IR (${p}%)             : R$ ${IR.toFixed(2)}<br>
+            (-)INSS (10%)             :R$ ${fgts.toFixed(2)}<br>
+            Total de descontos        : R$ ${desc.toFixed(2)}<br>
+            Salário Líquido           : R$ ${liquido.toFixed(2)}
+            </pre>`
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Folha de Pagamento</h1>
+    <hr>
+    <p>Valor por hora: <input type="number" name="valorh" id="valorh"> </p>
+    <p>Horas trabalhadas no mês: <input type="number" name="horas" id="horas"></p>
+    <button onclick="enviar()">Enviar</button>
+    <hr>
+    <div id="res">Resultado:</div>
+</body>
+</html>

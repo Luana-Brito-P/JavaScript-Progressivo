@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15pt;
+        }
+    </style>
+    <script>
+        function igual() {
+            alert(document.getElementById('igu1').value == document.getElementById('igu2').value)
+        }
+
+        function diferente(){
+            alert(document.getElementById('dif1').value != document.getElementById('dif2').value)
+        }
+
+        function maior(){
+            alert(document.getElementById('maior1').value > document.getElementById('maior2').value)
+        }
+
+        function maiorIgual(){
+            alert(document.getElementById('maiori1').value >= document.getElementById('maiori2').value)
+        }
+
+        function menor(){
+            alert(document.getElementById('menor1').value < document.getElementById('menor2').value)
+        }
+
+        function menorIgual(){
+            alert(document.getElementById('menori1').value <= document.getElementById('menori2').value)
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="igu1" id="igu1"> == <input type="text" name="igu2" id="igu2"> <button onclick="igual()">Comparar</button><br>
+
+    <input type="text" name="dif1" id="dif1"> != <input type="text" name="dif2" id="dif2"> <button onclick="diferente()">Comparar</button><br>
+
+    <input type="text" name="maior1" id="maior1"> > <input type="text" name="maior2" id="maior2"> <button onclick="maior()">Comparar</button><br>
+
+    <input type="text" name="maiori1" id="maiori1"> >= <input type="text" name="maiori2" id="maiori2"> <button onclick="maiorIgual()">Comparar</button><br>
+
+    <input type="text" name="menor1" id="menor1"> < <input type="text" name="menor2" id="menor2"> <button onclick="menor()">Comparar</button><br>
+
+    <input type="text" name="menori1" id="menori1"> <= <input type="text" name="menori2" id="menori2"> <button onclick="menorIgual()">Comparar</button>
+
+</html>

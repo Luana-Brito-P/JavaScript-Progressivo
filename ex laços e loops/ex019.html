@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let num
+        let maior = 0
+        let menor = 0
+        let soma = 0
+        
+        for(let i = 1; i <=3; i++){
+            num = Number(prompt( i + ') Digite um número: '))  
+
+            while (num <=0 || num >= 1000 || isNaN(num)){ 
+                alert('Valor inválido! Por favor, Digite um número entre 0 e 1000...')
+                num = Number(prompt( i + ') Digite novamente: '))  
+               
+            }
+                soma += num
+            
+                if(i === 1||num > maior){
+                    maior = num
+                }
+
+                if(i === 1 || num < menor){
+                    menor = num
+                }
+         }
+        
+        alert(`Maior: ${maior}\nMenor: ${menor}\nSoma: ${soma}`)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

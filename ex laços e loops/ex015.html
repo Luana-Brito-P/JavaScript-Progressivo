@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let qtde_termos = Number(prompt('Digite a quantidade de termos que você deseja na sequência Fibonacci:'))
+        penultimo = 0
+        ultimo = 1
+        let proxnum = 0
+
+        if(qtde_termos == 1){
+            document.write(penultimo + '<br>')
+            if(qtde_termos == 2)
+                document.write(ultimo + '<br>')
+        }else{
+            document.write(penultimo + '<br>' + ultimo + '<br>')
+
+            for(let i = 3; i <= qtde_termos; i++){
+                proxnum = penultimo + ultimo
+                document.write(proxnum + '<br>')
+
+                penultimo = ultimo
+                ultimo = proxnum
+            }
+        }
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

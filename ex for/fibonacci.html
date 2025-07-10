@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    <script>
+        function limpar(){
+            let qtde_termo = document.getElementById('termo')
+            let res = document.getElementById('res')
+
+            qtde_termo.value = '' 
+            res.innerHTML = ''
+        }
+        function fibonacci(){
+            let res = document.getElementById('res')
+            let qtde_termo = document.getElementById('termo').value 
+            let termo1 = 0
+            let termo2 = 1
+            let proxnum = 0
+
+           
+            if(qtde_termo <= 2)
+                res.innerHTML += `${termo1}<br>`
+                if(qtde_termo == 2)
+                res.innerHTML += `${termo2}<br>`
+            else{
+                res.innerHTML += `${termo1}<br>${termo2}`
+                for(let i = 3; i <= qtde_termo; i++){
+                proxnum = termo1 + termo2
+                res.innerHTML += `<br>${proxnum}`
+
+                termo1 = termo2
+                termo2 = proxnum
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Fibonacci</h1>
+    Qtde. de Termos:
+    <input type="number" name="termo" id="termo" onclick="limpar()">
+    <button onclick="fibonacci()">Enviar</button>
+    <hr>
+    <h3>Resultado Fibonacci:</h3>
+    <div id="res"></div>
+    <hr>
+</body>
+</html>

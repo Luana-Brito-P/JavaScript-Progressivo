@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruteira</title>
+    <script>
+        function calcular(){
+            let mora = parseFloat(document.getElementById('morango').value)
+            let maca = parseFloat(document.getElementById('maca').value)
+            let res = document.getElementById('res')
+            let kg = mora + maca
+            let preco1
+            let preco2
+
+            if(mora <= 5){
+                preco1 = 2.5 * mora
+            } else {
+                preco1 = 2.2 * mora
+            }
+
+            if(maca <= 5){
+                preco2 = 1.8 * maca
+            } else {
+                preco2 = 1.5 * maca
+            }
+            
+            total = preco1 + preco2
+            if(kg > 8 || total > 25){
+                //desconto de 10% sobre o total
+                total = total - ((total * 10)/100)
+            }
+
+            res.innerHTML = `R$${total}`
+        }
+    </script>
+</head>
+<body>
+    <h1>Fruteira</h1>
+    <hr>
+    Morangos[kg]: <input type="number" name="morango" id="morango">
+    Maçã[kg]: <input type="number" name="maca" id="maca">
+    <button onclick="calcular()">Calcular</button>
+    <hr>
+    Total: <div id="res"></div>
+</body>
+</html>
