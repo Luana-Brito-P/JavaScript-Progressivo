@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let totidade = 0
+        let pessoas = 0
+        let res = ''
+        let faixa_etaria = ''
+
+            do {
+                let idade = parseInt(prompt('Adicione a sua idade:'))
+                while(isNaN(idade)){
+                    idade = parseInt(prompt('Valor inválido, adicione a sua idade:'))
+                }
+
+                pessoas++
+                totidade += idade
+
+                res = prompt('Deseja adicionar mais uma pessoa? (s/n)').toLowerCase()
+                    while(res != 's' && res != 'n'){
+                        res = prompt('Resposta inválida\n Digite (S) para sim e (N) para não').toLowerCase()
+                    }
+            }while(res === 's')
+
+            let media = totidade / pessoas
+            if(media >= 0 && media <=25){
+                faixa_etaria = 'Jovem'
+            }else if(media > 25 && media <=60){
+                faixa_etaria = 'Adulta'
+            } else {
+                faixa_etaria = 'Idosa'
+            }
+
+            alert(`Média de idade da turma: ${media.toFixed(2)}\nTurma de faixa etária: ${faixa_etaria}`)
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

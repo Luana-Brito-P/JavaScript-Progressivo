@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primo</title>
+    <script>
+        let num = parseInt(prompt('É PRIMO? \nDigite um número:'))
+        let divisores = 0 
+
+        for(let i = 1; i <= num;i++){
+            if(num % i == 0)
+            divisores++
+        }
+
+        if(divisores == 2)
+            alert(`${num} é um número primo!`)
+        else
+            alert(`${num} não é um número primo!`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

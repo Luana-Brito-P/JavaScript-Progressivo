@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let totnotas = 0
+        let res = ''
+        let qtde_notas = 0
+
+        do {
+            let nota = Number(prompt('Adicionar nota:'))
+            while(isNaN(nota)){
+                nota = Number(prompt('Valor inválido, Digite novamente:'))
+            }
+            qtde_notas ++
+            totnotas += nota
+        
+            res = prompt('Deseja adicionar mais uma nota? (s/n)').toLowerCase()
+                while(res != 's' && res != 'n'){
+                    res = prompt('Valor inválido, Digite novamente (s/n):')
+                }  
+        }while(res === 's' )
+
+        alert(`Soma: ${totnotas}\nQtde. de notas: ${qtde_notas}\nMédia Aritmética: ${(totnotas/qtde_notas).toFixed(2)}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

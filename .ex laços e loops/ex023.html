@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let num = parseInt(prompt('QUAIS SÃO PRIMOS?\n até qual número você quer? '))
+        let primo = ''
+        
+        let qtde_divisoes = 0
+
+        for(let n = 2; n <= num; n++){
+            let divisores = 0
+
+            for(let i = 1; i <= n; i++){
+                qtde_divisoes ++
+                if(n % i == 0){
+                    divisores ++
+                }
+            }
+
+            if(divisores == 2){
+                primo += n + ' '
+
+            }
+        }
+        
+        alert(`Total de divisões executadas: ${qtde_divisoes} \nPrimos:${primo}`)
+
+    </script>
+</head>
+<body>
+    <!-- 
+    EXPLICAÇÃO
+    ----
+
+    O exercicio pedia pra escolher um numero, onde seria realizado uma analise de 1 ate num para verificar quais números dentro desse periodo de números é ou nao primo;
+
+    ATÉ NUM:    
+    Para isso fiz um for q representa o numero selecionado de 1 ate n (chamado nesse ex de "n");
+
+        TESTE N:
+            Para testar n, foi adicionado um for, q representa o divisor q vai ser dividido por num, pq num precisa ser testado com todos os seus possiveis e divisores (no caso de 1 ate num) para verificar com quais numeros ele é divisivel (ou seja == 0);
+                se num dividido pelo divisor der 0, ele é divisor e divisores recebe 1;
+                
+        TESTE PRIMO
+            Depois q o TESTE N foi finalizado, e o número de divisores foi descoberto para cada n, um teste pra saber se o numero é primo deve ser realizado (divisores == 2 é primo, e primo recebe n).
+
+            Além disso foi adicionado um contador (qtde_divisoes) para saber quantas divisoes foram feitas para o descobrimento dos primos
+
+        TESTE FINALIZADO
+            Para cada finalização do TESTE DE N e TESTE PRIMO, o código retorna para o primeiro for, refazendo todos os testes realizados para descobrir quantos divisores e quais são primos
+             
+            OBS:  let divisores deve ser reinicializado, pois ele vai fazer o teste novamente com outros números (por isso a variavel divisores foi declarada dentro do primeiro for)
+
+    FIM DOS TESTES E PRIMO É EXIBIDO COM OS VALORES DEVIDAMENTE TESTADOS NO PAINEL ALERT
+    -->
+    
+</body>
+</html>
