@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let qtde_cd
+        let valor
+        let totValor = 0
+
+        do{
+            qtde_cd = parseInt(prompt("A quantidade de CD's compradas"))
+        } while(isNaN(qtde_cd))
+
+        do{
+            for(let i = 1; i <= qtde_cd; i++){
+                valor = parseInt(prompt(`Valor do ${i}°CD:`))
+                totValor += valor
+            }
+        }while(isNaN(valor))
+
+        alert(`Total gasto: ${totValor}\n Média por CD: ${totValor/qtde_cd}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

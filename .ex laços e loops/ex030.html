@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .container{
+            display: flex;
+            flex-flow: column wrap;
+
+            height: 580px; 
+            width: 400px;
+            
+            /*height é o que altera a qtde de colunas */
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Panificadora Pão de Ontem - Tabela de Preços</h1>
+        <p>Preço do pão:<span id="preco_pao"></span></p>
+    </header>
+    <main>
+        <div class="container">
+            <div id="col1" class="colunas"></div>
+            <div id="col2" class="colunas"></div> 
+        </div>
+    </main>
+</body>
+<script>
+    let col1 = document.getElementById('col1')
+    let col2 = document.getElementById('col2')
+    let preco = parseFloat(prompt('Digite o preço do pão:'))
+    document.getElementById('preco_pao').textContent = `R$ ${preco.toFixed(2)}`
+
+    for(let i = 1; i <= 50; i++){
+        tabela = `<div style = "border: 1px solid gray; padding:2px; font-size:14px">${i} - ${(i * preco).toFixed(2)}</div>`
+
+        if(i <= 25)
+            col1.innerHTML += tabela
+        else
+            col2.innerHTML += tabela
+    }
+</script>
+</html>

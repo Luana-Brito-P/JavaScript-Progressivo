@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleição</title>
+    <script>
+        let numEle = parseInt(prompt('SISTEMA ELEITORAL\nNúmero total de eleitores'))
+        let cand1 = 0
+        let cand2 = 0
+        let cand3 = 0
+        let voto
+
+
+        for(let i = 1; i <= numEle; i++){
+            
+            do{
+                voto = parseInt(prompt(`Eleitor n°${i} Escolha o seu candidato\n[1]Kate Moss\n[2]Joyce\n[3]Davi Brito`))
+
+                switch(voto){
+                    case 1 :
+                        cand1++
+                        break
+                    case 2:
+                        cand2++
+                        break
+                    case 3: 
+                        cand3++
+                        break
+                    default: alert('Valor inválido, Tente novamente')
+                }
+            }while(voto !== 1 && voto !== 2 && voto !== 3)
+
+            if(i !=numEle){
+                alert('Voto Realizado com sucesso! Próximo eleitor.')
+            }
+        }
+
+        alert(`RESULTADO ELEITORAL\nKate Moss: ${cand1}\nJoyce: ${cand2}\nDavi Brito: ${cand3}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

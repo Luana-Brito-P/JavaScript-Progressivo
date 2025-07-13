@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 10px;
+           
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            flex-flow: column wrap;
+            
+            height: 580px;
+            width: 400px;
+            padding: 2px;
+            border: 2px solid black;
+        }
+        .coluna{
+            border: 1px solid gray;
+            
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            let col1 = document.getElementById('col1')
+            let col2 = document.getElementById('col2')
+            let qtde_produtos
+        
+        
+            for(let i = 1; i <= 50; i++){
+                let lista = `<div style = "border: 1px solid gray;padding:2px;font-size:14px">${i} - R$ ${1.99 * i}</div>`
+
+                if(i <= 25)
+                col1.innerHTML += lista
+                else
+                col2.innerHTML += lista
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Lojas Quase Dois - Tabela de preços</h1>
+        <p>Quantidade e Preços</p>
+    </header>
+    <main>
+    <div class="container">
+        <div id="col1" class="coluna"></div>
+        <div id="col2" class="coluna"></div>
+    </div>
+    </main>
+    
+</body>
+</html>

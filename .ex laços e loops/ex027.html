@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let turmas = parseInt(prompt('MÉDIA DE ALUNOS POR TURMA\n Digite o n° de turmas:')) 
+        let alunos
+        let totAlunos = 0
+    
+        for(let i = 1; i <= turmas; i++){
+            do{
+                alunos = parseInt(prompt(`Turma n°${i}) Quantos alunos:`))
+                totAlunos += alunos
+
+                if(alunos > 40){
+                    alert("Valor inválido! As turmas tem um limite de 40 alunos")
+                }
+            }while(alunos > 40)
+        }
+        alert(`Média de alunos por turma: ${totAlunos/turmas}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
