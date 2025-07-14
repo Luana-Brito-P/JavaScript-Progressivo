@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa Academia</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial,Helvetica, sans-serif;
+        }
+
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            width: 100vw;
+            
+        }
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(2, 2, 114);
+            text-shadow:2px 2px 2px rgba(0, 0, 0, 0.518) ;
+        }
+        main {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+           
+            height: 90vh;
+            width: 100vw;
+            
+        }
+        section{
+
+            background-color: lightsteelblue;
+            
+            box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.532);
+            border-radius: 15px;
+
+            height: auto;
+            width: 300px;
+            padding: 30px;
+        }
+
+        article{
+            display: flex;
+            flex-flow: column nowrap;
+            
+            align-items: center;
+            
+           
+            height: 100%;
+            gap: 40px;
+            text-align: justify;
+        }
+        h2{
+            font-size: 20px;
+        }
+        p{
+           
+            text-align: center;
+        }
+        button{
+            height: 40px;
+            width: 250px;
+            border-radius: 15px;
+            margin: 40px;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+        button:hover{
+            background-color: rgb(2, 2, 78);
+            border: 3px solid black;
+            color: white;
+            font-weight: bolder;
+            transition: 0.3s;
+        
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academia SmartFit</h1>
+    </header>
+    <main>
+        <section>
+            <article>
+                <h2>Pesquisa sobre os clientes</h2>
+                <p>A academia por meio deste site, deseja realizar um levamento de dados entre seus clientes, para participar clique no botão abaixo</p>
+                <button onclick="pesquisa()">Participar</button>
+            </article>
+        </section>
+    </main>
+</body>
+<script>
+    function pesquisa(){
+        let alto = 0; codAlto = 0;
+        let baixo = Infinity; codBaixo = 0;
+        let gordo = 0; codGordo = 0;
+        let magro = Infinity; codMagro = 0;
+
+        let totaltu = 0
+        let totpeso = 0
+        let clientes = 0
+    
+        while(true){
+            
+            let code = parseFloat(prompt('Digite o código do cliente (0 para encerrar)'))
+            if(code === 0) break;
+            
+
+            let altura = parseFloat(prompt('Informe a sua altura [m]:'))
+            while(isNaN(altura)){
+               altura = parseFloat(prompt("Altura inválido! Tente novamente")) 
+            }
+            
+            let peso = parseFloat(prompt('Informe o seu peso [kg]:'))
+            while(isNaN(peso)){
+                peso = parseFloat(prompt("Peso inválido! Tente novamente"))
+            }
+
+            totaltu += altura
+            totpeso += peso
+            clientes++
+            
+            if(alto < altura){
+                alto = altura
+                codAlto = code
+            }else if(baixo > altura){
+                baixo = altura
+                codBaixo = code
+            }
+
+            if(gordo < peso){
+                gordo = peso
+                codeGordo = code
+            }else if(magro > peso){
+                magro = peso
+                codeMagro = code
+            }
+            
+        }
+
+        if(clientes > 0){
+            alert(`DADOS CLIENTES\n
+            Mais alto: Código° ${codAlto} com ${alto}m\n 
+            Mais baixo: Código° ${codBaixo} com ${baixo}m\n 
+            Mais acima do peso: Código° ${codGordo} com  ${gordo}kg\n
+            Mais magro: Código° ${codMagro} com ${magro}kg\n
+            Média de altura: ${totaltu/clientes}m\n
+            Média de peso: ${totpeso/clientes}kg\n`)
+        } else{
+            alert("Nenhum cliente cadastrado.");
+        }
+
+    }
+</script>
+</html>
