@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let temp = []
+    let totTemp = 0
+    let valor = 0
+    
+    do{
+        let entrada = prompt("Digite a temperatura ou 'fim' para encerrar :")
+        if(entrada.toLowerCase() === "fim") {
+            break
+        }
+
+        valor = parseFloat(entrada)
+            if(!isNaN(valor)){
+                temp.push(valor)
+                totTemp += valor
+            } else{
+                alert("Valor inválido! Digite um número ou 'fim'.")
+            }    
+    }while(true)
+
+    let menor = temp[0]
+    let maior = temp[0]
+
+    for(let i = 0; i < temp.length; i++){
+        if(maior < temp[i])
+            maior = temp[i]
+
+        if(menor > temp[i])
+            menor = temp[i]
+    }
+
+    alert(`DADOS=\nMaior:${maior}°C\nMenor${menor}°C\nMédia:${(totTemp/temp.length).toFixed(2)}`)
+</script>
+</html>

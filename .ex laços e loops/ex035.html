@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 15px;
+        }
+        header{
+            font-weight: bolder;
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <p>Montar a tabuada de: <span class="numTabuada"></span></p>
+        <p>Começar por: <span class="comecar"></span></p>
+        <p>Terminar em: <span class="terminar"></span></p>
+    </header>
+    <hr>
+    <main>
+        Vou montar a tabuada de <span class="numTabuada"></span>, começando em <span class="comecar"></span>, e terminando em <span class="terminar"></span>:
+        <div id="tabuada"></div>
+    </main>
+</body>
+<script>
+    let numt = parseInt(prompt('TABUADA\n Digite o número que vc deseja ver a tabuada:'))
+    let comecar = parseInt(prompt('De qual número a sua tabuada deve começar?'))
+    let terminar = parseInt(prompt('Em qual número a sua tabuada deve terminar?'))
+    let res = document.getElementById('tabuada')
+    let total = 0
+
+        if(comecar > terminar || isNaN(numt)||isNaN(comecar)||isNaN(terminar)){
+            alert('Valores inválidos, Tente novamente!')
+        }
+
+    document.querySelectorAll('.numTabuada').forEach(e => e.textContent = `${numt}`)
+    document.querySelectorAll('.comecar').forEach(e => e.textContent = `${comecar}`)
+    document.querySelectorAll('.terminar').forEach(e => e.textContent = `${terminar}`)
+
+    
+        for(let i = comecar; i <= terminar; i++){
+            total = numt * i 
+            res.innerHTML += `${numt} x ${i} = ${total} <br>`
+        }
+
+
+</script>
+</html>

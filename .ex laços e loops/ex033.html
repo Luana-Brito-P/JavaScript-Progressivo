@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Lista de primos</h1>
+    <div id="res"></div>
+</body>
+<script>
+        let res = document.getElementById('res')
+        let num = parseInt(prompt('Digite um número:'))
+        let primo = true
+      
+        if(num <= 1){
+            primo = false
+        }else{
+            for(let i = 2; i <= Math.sqrt(num); i++){
+                if(num % i == 0){
+                    primo = false 
+                    break 
+                }
+            }
+        }
+
+        if(primo){
+            res.innerHTML += `${num} É primo`  
+        } else{
+            res.innerHTML += `${num} Não é primo`
+        }
+
+
+
+    </script>
+</html>
+
+<!-- como descobir se um número é primo?
+ faça a raiz quadrda desse numero, dps divida o número por todos os primos que sejam menores ou iguais ao resultado da raiz, se tiver algum divisor no intervalo de 2 ate a raiz, o número é composto
+ raiz de x = y
+ x / primos ate y
+
+ Nesse exemplo n estamos usando apenas números primos, usamos todos os numeros que vem antes da raiz
+-->

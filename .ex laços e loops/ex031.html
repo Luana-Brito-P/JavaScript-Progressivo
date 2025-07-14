@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa Regiatradora</title>
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Loja de Conveniências</h1>
+    </header>
+    <main>
+        <div id="caixa"></div>
+    </main>
+</body>
+<script>
+    let valor
+    let totValor = 0
+    let produtos = []
+    let texto = document.getElementById('caixa')
+
+    //PRODUTOS , TESTE SE VALOR FOR 0 E DINHERIO DO USUÁRIO
+    do{
+        valor = parseFloat(prompt("Digite o preço:"))
+            if(valor > 0)
+                produtos.push(valor)
+        totValor += valor
+    }while(valor != 0)
+
+    let dinheiro = parseFloat(prompt(`Total a pagar: ${totValor}\nValor em dinheiro:`))
+    let troco = dinheiro - totValor
+
+    //EXIBIÇÃO
+    
+        for(let i = 0; i < produtos.length; i++){
+            texto.innerHTML += `Produto ${i + 1}: R$ ${produtos[i].toFixed(2)}<br>`
+        }
+    
+    texto.innerHTML += `Total:R$ ${totValor.toFixed(2)}<br>`
+    texto.innerHTML += `Dinheiro R$ ${dinheiro.toFixed(2)}<br>`
+    texto.innerHTML += `Troco: R$ ${troco.toFixed(2)}<br>`
+
+</script>
+</html>
