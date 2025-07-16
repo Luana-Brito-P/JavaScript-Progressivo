@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            text-align: center;
+            width: 100vw;
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+        table.cardapio{
+            width: 60vw;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .cardapio > thead{
+            border: 1px solid black;
+            background-color: rgb(193, 193, 193);
+        }
+         .cardapio th, .cardapio tr, .cardapio td{
+            text-align: center;
+            padding: 5px;
+        }
+        button{
+            height: 35px;
+            width: 320px;
+            background-color: chocolate;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.507);
+            font-weight: bolder;
+        }
+        button:hover{
+            color: white;
+            height: 40px;
+            width: 325px;
+            transition: 0.3s;
+            
+        }
+      
+        table.resumo {
+            width: 60vw;
+            padding: 5px;
+           
+            font-family: monospace;
+            font-size: 15px;
+            text-align: center;
+        }
+        .resumo th, .resumo td{
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cardápio</h1>
+    <main>
+        <table class="cardapio">
+            <thead>
+                <th>Especificação</th>
+                <th>Código</th>
+                <th>Preço</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cachorro Quente</td>
+                    <td>100</td>
+                    <td>R$ 1,20</td>
+                </tr>
+                <tr>
+                    <td>Bauru Simples</td>
+                    <td>101</td>
+                    <td>R$ 1,30</td>
+                </tr>
+                <tr>
+                    <td>Bauru com ovo</td>
+                    <td>102</td>
+                    <td>R$ 1,50</td>
+                </tr>
+                <tr>
+                    <td>Hambúrguer</td>
+                    <td>103</td>
+                    <td>R$ 1,20</td>
+                </tr>
+                <tr>
+                    <td>Cheeseburguer</td>
+                    <td>104</td>
+                    <td> R$ 1,30</td>
+                </tr>
+                <tr>
+                    <td>Refrigerante</td>
+                    <td>105</td>
+                    <td>R$ 1,00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="pedido()">Fazer Pedido</button>
+        <div id="res"></div>
+    </main>    
+    
+</body>
+<script>
+    function pedido(){
+        let res = document.getElementById('res')
+//ESTRUTURA DO RECIBO
+        res.innerHTML = `
+          <h2>Resumo do Pedido:</h2>
+            <table class = 'resumo'>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Valor Unitário</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-corpo"></tbody>
+            </table>
+            <p id="total-final" style="font-weight: bold; font-size: 18px;"></p>
+        `
+            let tabela = document.getElementById('tabela-corpo')
+            let totalGeral = 0
+
+
+        while(true){
+            let preco
+            let produto
+            let code = parseInt(prompt('Código do item (Digite 0 para encerrar):'))
+            if(code === 0)
+                break
+            if(code === 100){
+                produto = "Cachorro Quente"
+                preco = 1.2
+            }else if(code === 101){
+                produto = 'Bauro Simples'
+                preco = 1.3
+            } else if(code === 102){
+                produto = 'Bauro com ovo'
+                preco = 1.5
+            }else if(code === 103){
+                produto = 'Hambúrguer'
+                preco = 1.2
+            }else if(code === 104){
+                produto = 'Cheeseburguer'
+                preco = 1.3
+            }else if(code === 105){
+                produto = 'Refrigerante'
+                preco = 1
+            }else(
+                alert('Código inválido!')
+            )
+            
+            let qtde = parseInt(prompt('Quantidade desejada:'))
+            while(isNaN(qtde) || qtde <= 0) {
+                parseInt(prompt('Valor inválido! Digite a quantidade desejada:'))
+            }
+            
+            let subtotal = preco * qtde
+            totalGeral += subtotal
+            tabela.innerHTML += `
+            <tr>
+                <td>${produto}</td>
+                <td>${qtde}</td>
+                <td>R$ ${preco.toFixed(2)}</td>
+                <td>R$ ${subtotal.toFixed(2)}</td>
+            </tr> `
+        }
+        document.getElementById('total-final').innerText =  `Total a pagar: R$ ${totalGeral.toFixed(2)}`
+    }
+</script>
+</html>

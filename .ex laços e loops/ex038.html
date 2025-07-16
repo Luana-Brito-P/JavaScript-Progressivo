@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let code = ''
+        let maior = 0; codeMaior = 0
+        let menor = Infinity; codeMenor = 0
+        let totV = 0
+        let totAcid = 0
+        let qtde_cidades = 0
+
+        for(let i = 1; i <= 5; i++){
+            code = Number(prompt(`Código da ${i}° Estado:`))
+                while(isNaN(code)){
+                    code = Number(prompt('Código inválido! Digite novamente...'))
+                }
+
+            let numV = parseInt(prompt('Qual é o número de veículos de passeio?'))
+                while(isNaN(numV)){
+                   numV = Number(prompt('Valor inválido! Digite novamente...'))
+                }
+
+            let numAci = parseInt(prompt('Qual é o número de acidentes de trânsito?'))
+                while(isNaN(numAci)){
+                    numAci = Number(prompt('Valor inválido! Digite novamente...'))
+                }
+
+            totV += numV
+
+            if(numV < 2000){
+                totAcid += numAci
+            }
+
+            if(maior < numAci){
+                maior = numAci
+                codeMaior = code
+            }
+                
+            if(menor > numAci){
+                qtde_cidades ++
+                menor = numAci
+                codeMenor = code
+            }
+    
+        }
+        alert(
+        `Maior índice de acidente: cidade ${codeMaior}, com ${maior} acidentes\nMenor índice de acidentes: cidade ${codeMenor}, com ${menor} acidentes\nMédia de veículos: ${totV/5} Veículos\nMédia de acidentes nas cidades\ncom menor de 2.000 veículos: ${totAcid / qtde_cidades} Acidentes
+        `)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

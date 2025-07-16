@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            width: 100vw;
+            text-align: center;
+        }
+        table{
+            border-collapse: collapse;
+            width: 95vw;
+        }
+        th, td {
+            border: 1px solid  black;
+            padding: 10px;
+            text-align: center;
+        }
+        th{
+            background-color:#eee ;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabela Financeira</h1>
+    <div id="res"></div>
+</body>
+<script>
+    let res = document.getElementById('res')
+    let divida = parseFloat(prompt('Digite o valor da dívida (Digite 0 para encerrar):'))
+         
+    if(divida > 0){    
+        let parcelas
+
+        while(true){
+             parcelas = parseInt(prompt('Em quantas parcelas vc pretende pagar? (1, 3, 6, 9, 12)'))
+            if([1,3,6,9,12].includes(parcelas)) break
+        }
+
+        let pjuros = 0
+
+        switch(parcelas){
+            case 1: pJuros = 0/100; break
+            case 3: pJuros = 10/100; break
+            case 6: pJuros = 15/100; break
+            case 9: pJuros = 20/100; break
+            case 12: pJuros = 25/100; break
+        }
+
+        let valorJ = divida * pJuros
+        let dividaTotal = divida + valorJ
+        let valorP = dividaTotal / parcelas
+
+        res.innerHTML = `
+        <table>
+            <thead>
+                <th>Valor da Dívida </th>
+                <th>Valor dos Juros</th>
+                <th>Parcelas </th>
+                <th>Valor da Parcela</th>
+            </thead>
+            <tbody>
+                <td>R$ ${dividaTotal.toFixed(2)}</td>
+                <td>R$ ${valorJ.toFixed(2)}</td>
+                <td> ${parcelas}x</td>
+                <td>R$ ${valorP.toFixed(2)}</td>
+            </tbody>
+        </table>
+        `
+    } else {
+        res.innerHTML += `<p>Programa encerrado.</p>`
+    }
+    
+
+    
+</script>
+</html>

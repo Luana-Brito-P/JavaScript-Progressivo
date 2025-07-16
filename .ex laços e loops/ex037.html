@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let anoAtual = new Date().getFullYear()
+        let salarioInicial = parseFloat(prompt('Qual é o seu salário inicial?')) 
+        let porcentual = 1.5/100
+        let aumento = 0
+        
+        while(isNaN(salarioInicial)){
+            salarioInicial = parseFloat(prompt('Valor inválido! Digite o seu salário inicial:')) 
+        }
+        
+        let salario = salarioInicial
+        
+        for(let i = 1996; i <= anoAtual; i++){
+            aumento = salario * porcentual
+            salario += aumento
+            porcentual *= 2
+        }
+
+        alert(`Salário atual em ${anoAtual} : ${salario.toLocaleString('pt-BR')}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
