@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="res"></div>
+</body>
+<script>
+    let res = document.getElementById('res')
+    let n = parseInt(prompt('Quantos termos?'))
+     while (isNaN(n) || n <= 0) {
+        n = parseInt(prompt('Valor inválido! Digite um número inteiro positivo:'))
+    }
+
+    let soma = 0
+    res.innerHTML = `S =`
+
+    for(let i = 1; i <= n; i++){
+        let numerador = i
+        let denominador = 2 * i - 1
+        let termo = numerador / denominador
+        soma += termo
+
+        //Mostra a fração
+        res.innerHTML += `${numerador}/${denominador}`
+        
+        //adiciona + entre is termos
+        if(i < n)
+            res.innerHTML += ` + `
+    }
+
+    // mostrar a soma final
+     res.innerHTML += ` <br><br><strong>Soma da série:</strong> ${soma.toFixed(2)}`
+</script>
+</html>
+
+<!-- s = 1/1 + (1+1)/(1+2) +... 
+ o numerador é de 1 ate n
+ o denominador aumenta de dois em dois
+ o denominador em relanção ao i sempre sera : 2 * i - 1
+
+-->

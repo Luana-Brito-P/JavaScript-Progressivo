@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Eleitoral</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+        td {
+            text-align: left;
+        }
+        
+        button{
+            margin: 20px 0px;
+            width: 200px;
+            height: 30px
+        }
+        #resultado{
+            margin-top: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #resultado th{
+            text-align: center;
+            background-color: grey;
+            border: 1px solid black; 
+        }
+        #resultado td{
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sistema Eleitoral</h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>[1] </th>
+                <td>Maria José</td>
+            </tr>
+            <tr>
+                <th>[2] </th>
+                <td>Agatha Nunes</td>
+            </tr>
+            <tr>
+                <th>[3] </th>
+                <td>Davi Brito</td>
+            </tr>
+            <tr>
+                <th>[4] </th>
+                <td>Joyce</td>
+            </tr>
+            <tr>
+                <th>[5] </th>
+                <td>Voto Nulo</td>
+            </tr>
+            <tr>
+                <th>[6] </th>
+                <td>Voto em Branco</td>
+            </tr>
+            <tr>
+                <th>[0] </th>
+                <td>Encerrar</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <button onclick="votar()">Votar</button>
+    <div id="res"></div>
+</body>
+<script>
+    function votar(){
+        let cand1 = 0
+        let cand2  = 0
+        let cand3  = 0
+        let cand4 = 0
+        let nulo = 0
+        let branco = 0
+        let res = document.getElementById('res')
+
+        while(true){
+            let voto = parseInt(prompt('Digite o seu voto: '))
+            if(voto === 0) break // ja encerra aqui
+
+            while(isNaN(voto) || ![1,2,3,4,5,6].includes(voto)){
+                voto = parseInt(prompt('Valor inválido, digite a sua opção númerica novamente:'))
+                if(voto === 0) break//se for digitado aqui encerra o loop interni(esse while)
+            }
+            if(voto === 0) break // pra quebrar o loop externo
+
+            switch(voto){
+                case 1: cand1++; break
+                case 2: cand2++; break
+                case 3: cand3++; break
+                case 4: cand4++; break
+                case 5: nulo++; break
+                case 6: branco++; break
+            }
+        
+            
+            res.innerHTML = `
+            <table id='resultado'>
+                <thead>
+                    <th colspan='2'>Resultado Eleitoral</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maria José: </td>
+                        <td>${cand1} Votos</td>
+                    </tr>
+                    <tr>
+                        <td>Agatha Nunes: </td>
+                        <td>${cand2} Votos</td>
+                    </tr>
+                    <tr>
+                        <td>Davi Brito</td>
+                        <td>${cand3} Votos</td>
+                    </tr>
+                    <tr>
+                        <td>Joyce</td>
+                        <td>${cand4} Votos</td>
+                    </tr>
+                    <tr>
+                        <td>Voto Nulo</td>
+                        <td>${nulo} Votos</td>
+                    </tr>
+                    <tr>
+                        <td>Voto em Branco</td>
+                        <td>${branco} Votos</td>
+                    </tr>
+                </tbody>
+            </table>
+            `
+        }
+    }
+</script>
+
+</html>

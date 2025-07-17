@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="res"></div>
+</body>
+<script>
+    let res = document.getElementById('res')
+    let n = parseInt(prompt('Quantos termos?'))
+
+    res.innerHTML = `S = `
+    let soma = 0
+
+    for(let i = 1; i <= n; i++){
+        let numerador = i
+        let denominador = 2 * i - 1
+        let termo = numerador/denominador
+        soma += termo
+
+        res.innerHTML += `${numerador}/${denominador}`
+
+        if(i < n)
+            res.innerHTML += ` + `
+    }
+
+    res.innerHTML += `<br><br><strong>Soma da Série:</strong> ${soma.toFixed(2)}`
+</script>
+</html>

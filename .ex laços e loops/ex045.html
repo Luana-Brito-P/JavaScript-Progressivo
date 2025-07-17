@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crescente e decrescente</title>
+</head>
+<body>
+    <div id="res"></div>
+</body>
+<script>
+    let cresc = []
+    let res = document.getElementById('res')
+    let num = parseInt(prompt('Digite um número inteiro positivo:'))
+    while(isNaN(num) || num <= 0){
+        num = parseInt(prompt('Valor inválido! Digite um NÚMERO INTEIRO e POSITIVO'))
+    }
+    for(let i = 1; i <= num; i++){
+        cresc.push(i)
+        res.innerHTML += `${i} `
+        
+    }
+    
+    let decrescente = [...cresc].sort((a, b) => b - a)
+    res.innerHTML += `<br>=> ${decrescente.join(' ')}` 
+</script>
+</html>

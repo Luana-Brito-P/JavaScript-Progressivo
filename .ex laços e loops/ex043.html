@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salto a distância</title>
+    <style>
+        *{font-family: monospace;
+          font-size: 15px
+        }
+        h1{
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Salto a distância</h1>
+    </header>
+    <main>
+        <section id="resultado"></section>
+    </main>
+</body>
+<script>
+    let nome = prompt('Nome do Atleta:')
+    let saltos = []
+    let res = document.getElementById('resultado')
+    let texto = ''
+
+    res.innerHTML = `Atleta: ${nome}<br><br>`
+    for(let i = 1; i <= 5; i++){
+        let dist = parseFloat(prompt(`Distância do ${i} salto:`))
+        saltos.push(dist)
+
+        switch(i){
+            case 1: texto = 'Primeiro'; break
+            case 2: texto ='Segundo'; break
+            case 3: texto = 'Terceiro'; break
+            case 4: texto = 'Quarto'; break
+            case 5: texto = 'Quinto' ; break   
+        }
+       
+        res.innerHTML += `${texto} Salto: ${dist} <br>`
+    }
+
+    
+    let melhor = Math.max(...saltos)
+    let pior = Math.min(...saltos)
+
+    //cópia dos saltos sem o pior e o melhor
+    let saltosFiltrados = saltos.slice() //copia
+    saltosFiltrados.splice(saltosFiltrados.indexOf(melhor),1) 
+    saltosFiltrados.splice(saltosFiltrados.indexOf(pior),1)
+    
+    //.splice(indice,1) remove um elemento a partir do indice,
+    // saltosFiltrados.indexOf(melhor) descobre o indice em que (melhor) está
+
+    let soma = saltosFiltrados.reduce((acc, val) => acc + val, 0)
+    // Essa linha é uma forma compacta de escrever:
+    //    let soma = 0
+    //    for(let i = 0; i < saltosFiltrados.length; i++) {
+    //       soma += saltosFiltrados[i]
+    //    }
+    //soma seria o acc e o saltosFiltrados[i] seria o val
+
+    res.innerHTML += `<br>Melhor Salto: ${melhor} <br>`
+    res.innerHTML += `Pior Salto: ${pior} <br>`
+    res.innerHTML += `Média dos demais saltos: ${(soma/3).toFixed(2)} <br>`
+
+    res.innerHTML += `<br>Resultado Final:<br>${nome}: ${(soma/3).toFixed(2)}`
+
+</script>
+</html>

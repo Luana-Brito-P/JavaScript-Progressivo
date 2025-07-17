@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    let resultados = []
+    let numAluno = 1
+
+    let gabarito = []
+        for(let i = 1; i <= 10; i++){
+            let res = prompt(`ÁREA DO PROFESSOR\nDigite a resposta correta da questão ${i}`).toUpperCase()
+            while(!['A', 'B', 'C', 'D', 'E'].includes(res)){
+                    res = prompt('Opção inválida! digite novamente').toUpperCase()
+                }
+            gabarito.push(res)
+        }
+        alert('Gabarito cadastrado com sucesso!\nConfirme para cadastrar as respostas dos alunos')
+
+    while(true){
+        let respostasAlunos = []
+        // const gabarito = ['A','B', 'C', 'D','E','E','D','C','B','A']
+       
+
+        //Recebendo respostas dos alunos
+        for(let i = 1; i <= 10; i++){
+            let res = prompt(`Adicione a resposta da questão ${i}°:`).toUpperCase()
+                while(!['A', 'B', 'C', 'D', 'E'].includes(res)){
+                    res = prompt('Opção inválida! digite novamente').toUpperCase()
+                }
+                respostasAlunos.push(res)
+        }
+        
+        //Comparando respostas com gabarito
+        
+        let acertos = 0
+        for(let i = 0; i <= 9; i++){ //índice de 0 a 9
+            if(respostasAlunos[i] === gabarito[i])
+            acertos++
+        }
+        resultados.push({aluno: numAluno, acertos: acertos})
+        numAluno++
+
+       //Outro aluno?
+       if(!confirm('Deseja cadastrar outro aluno?')) break
+    }
+    //exibição tabela
+  let tabela = '<h2>Resultados:</h2>'
+
+  tabela += `
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>Acertos</th>
+            <tr>
+        </thead>        
+        <tbody>`
+
+    for(let dados of resultados){
+        tabela += `
+        <tr>
+                <td>${dados.aluno}</td>
+                <td>${dados.acertos}</td>
+        </tr>`
+    }
+    tabela += '</tbody></table>'
+    document.body.innerHTML += tabela
+
+    //exibição dados
+    const acertosArray = resultados.map(aluno => aluno.acertos)
+    const soma = acertosArray.reduce((total,valor) => total + valor, 0)
+    let dados = `<h2>Dados</h2>`
+        dados += `Maior acerto: ${Math.max(...resultados.map(dados => dados.acertos))}<br>` 
+        dados += `Menor acerto: ${Math.min(...resultados.map(dados => dados.acertos))}<br>`
+        dados += `Média das notas: ${(soma / resultados.length).toFixed(2)}<br>`
+        dados += `Total de alunos que utilizaram o sistema: ${resultados.length}<br>`
+    document.body.innerHTML += dados
+
+
+</script>
+</html>
+
+<!-- 
+EXPLIXAÇÃO: let dados of resultados
+dados é o nome  (uma variavel temporario) dado para cada estrutura (aluno: numAluno, acertos: acertos) do array resultados[].
+O loop for vai percorrer por toda essa estrututa, vai emitir dados.aluno(numAlunos) e dados.acertos(acertos)
+-->

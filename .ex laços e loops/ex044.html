@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competição de Ginástica</title>
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 15px;
+        }
+        h1{
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Competição de Ginástica</h1>
+    </header>
+    <main>
+        <section id="resultado"></section>
+    </main>
+</body>
+<script>
+    let res = document.getElementById('resultado')
+    let notasJurados = []
+
+    //Recebendo nome
+    let nome = prompt('Nome do(a) Atleta: ')
+      while(!isNaN(nome)){ // se for número
+        nome = prompt('Isso parece um número. Por favor, digite o nome do(a) atleta:')
+      } 
+      res.innerHTML = `Atleta: ${nome}<br><br>`
+
+    //Recebendo notas
+      for(let i = 1; i <= 7; i++){
+        let nota = parseFloat(prompt(`${i}° Nota:`).replace(',','.')) 
+            while(isNaN(nota)){
+                nota = parseFloat(prompt(`Nota inválida! Digite novamente a ${i}° nota em valor númerico:`))
+            }
+        notasJurados.push(nota)
+        res.innerHTML += `${i}° Nota: ${nota.toFixed(1)}<br>`
+      }
+
+      //melhor e pior
+      let melhor = Math.max(...notasJurados)
+      let pior = Math.min(...notasJurados)
+
+      //Média -> filtrando as sete notas para a soma
+      let notasJuFiltrados = notasJurados.slice() //copia
+      notasJuFiltrados.splice(notasJuFiltrados.indexOf(melhor),1)
+      notasJuFiltrados.splice(notasJuFiltrados.indexOf(pior),1)
+      //.splice(indice,1) remove um elemento a partir do indice,
+      // saltosFiltrados.indexOf(melhor) descobre o indice em que (melhor) está
+
+      let soma = notasJuFiltrados.reduce((acc,val) => acc + val, 0)
+      // 0 + notasJurados[1]
+      // notasJurados[1] + notasJurados[2] ...
+
+      res.innerHTML += `<br>Resultado final: </br>`
+      res.innerHTML += `Atleta: ${nome}<br>`
+      res.innerHTML += `Melhor Nota: ${melhor}<br>`
+      res.innerHTML += `Pior Nota: ${pior}<br>`
+      res.innerHTML += `Média: ${(soma/5).toFixed(2)}<br>`
+</script>
+</html>
+
+<!-- 
+7 jurados, pior e melhor eliminada e a media restante é a nota da atleta
+ -->
