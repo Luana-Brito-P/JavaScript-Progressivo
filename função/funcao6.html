@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de lançamento de um dado</title>
+</head>
+<body>
+    <button onclick="gerar()">Rolar Dado</button> <br>
+    <strong>Dado:</strong> <div id="res"></div>
+</body>
+<script>
+    function gerar(){
+        let res = document.getElementById('res')
+        res.innerHTML = Math.floor(1 + Math.random() * 6)
+    }
+</script>
+</html>

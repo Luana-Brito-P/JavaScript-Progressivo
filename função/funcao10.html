@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     Numero:<input id="num" type="number">
+    <button onclick="main()">Fibonacci</button><br />
+    Resposta: <div id="res" style='display:inline'></div><br>
+</body>
+<script>
+    function main(){
+        let num = parseInt(document.getElementById('num').value)
+        let res = document.getElementById('res')
+
+        res.innerHTML = fibonacci(num)
+    }
+
+    function fibonacci(x){
+        if(x <= 2)
+        return (x - 1)  // f(1) = 0 f(2) = 1 [0,1,1] no 3° ocorre 0+1
+        else
+            return (fibonacci(x-1)+ fibonacci(x-2))
+    }
+
+    // fibonacci(x-1) -> anterioa
+    //  fibonacci(x-2 -> antepenultimo
+    /* 
+        fibonacci(5)
+        = fibonacci(4) + fibonacci(3)
+        = (fibonacci(3) + fibonacci(2)) + (fibonacci(2) + fibonacci(1))
+        = ((fibonacci(2) + fibonacci(1)) + fibonacci(2)) + (fibonacci(2) + fibonacci(1))
+        = 1 + 0 + 1 + 1 + 0
+        = 3
+    */
+</script>
+</html>

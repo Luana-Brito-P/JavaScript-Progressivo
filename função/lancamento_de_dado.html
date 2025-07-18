@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <input type="button" value="Rodar dados" id="rolar">
+    </form>
+    <img src="imagens/dados-funcao-0.png" id="dado">
+</body>
+<script>
+    let dado
+
+    function iniciar(){
+        let button = document.getElementById('rolar')
+        button.addEventListener('click', rolar, false)
+        //Essa função é chamada quando a página terminar de carregar (window.addEventListener("load", iniciar, false). 
+        // Nesse caso ela pega o botão com id "rolar" e adiciona um evento de clique nele, que chama a função rolar
+        dado = document.getElementById('dado')
+    }
+
+    function rolar(){ 
+        let valor = Math.floor(6 * Math.random() + 1)
+        dado.setAttribute('src', 'imagens/dados-funcao-'+ valor + '.png')
+        //adiciona a imagem de acordo com o seu valor
+    }
+
+   
+    window.addEventListener('load', iniciar, false) // carregamento da página
+</script>
+</html>

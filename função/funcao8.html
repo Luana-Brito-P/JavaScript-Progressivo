@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Apostila JavaScript Progressivo</title>
+    <script type="text/javascript" src="script.js"></script>
+ </head>
+ <body>
+  Numero:<input id="num" type="number">
+  <button onclick="main()">Somatório</button><br />
+  Resposta: <div id="resposta" style='display:inline'></div><br />
+  </body>
+</html>
+
+<script>
+    function main()
+    {
+     var num = parseInt(document.getElementById("num").value);
+     var resp = document.getElementById("resposta");
+    
+     resp.innerHTML = somatorio(num);
+    }
+    function somatorio(x)
+    {
+     if(x<=1) // se x for 1 ou menor ele vai retornar 1 e vai para de se chamar
+      return 1;
+     else // se for maior q um vai ser x + (x-1), que chama a funçao denovo x recebe (x-1) e q vai testar novamente se x vai ser <= 1
+      return x + somatorio(x-1) ;
+    }
+</script>

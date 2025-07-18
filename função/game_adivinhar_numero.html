@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Game - Adivinhar Número</h1>
+    Um número foi sorteado! Tente adivinhar! <br>
+    Número: <input type="number" id="num">
+    <button onclick="main()">Testar</button><br>
+    Tentativas: <div id="tentativas" style="display: inline;"></div> <br>
+    Dicas: <div id="dica" style="display: inline;"></div> <br>
+    <button onclick="window.location.reload()">Reiniciar</button>
+</body>
+<script>
+    let tentativa = 0
+    let numero = Math.floor(100 * Math.random() + 1)
+
+    function main(){
+        var tent = document.getElementById('tentativas')
+        var num = parseInt(document.getElementById('num').value)
+        var dica = document.getElementById('dica')
+
+        tentativa++
+        tent.innerHTML = tentativa
+        dica.innerHTML = teste(num)
+    }
+
+    function teste(x){
+        if(x < numero)
+            return "Seu número é menor que o sorteado!"
+        else if(x > numero)
+            return "Seu número é maior que o sorteado!"
+        else
+            return ('Parabéns! Acertou, o número sorteado é '+ numero)
+
+    }  
+</script>
+</html>

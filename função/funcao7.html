@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    Número 1: <input type="number" id="num1"> <br>
+    Número 2: <input type="number" id="num2"> <br>
+
+    <input type="radio" name="calc" id="soma"> Soma <br>
+    <input type="radio" name="calc" id="subtracao"> Subtração <br>
+    <input type="radio" name="calc" id="multiplicacao"> Multiplicação <br>
+    <input type="radio" name="calc" id="divisao"> Divisão <br>
+
+    <button onclick="main()">Calcular</button> <br>
+    <strong>Resposta:</strong> <div id="res"></div>
+</body>
+<script>
+    //CÓDIGO PRINCIPAL AQUI (main)
+    function main(){
+        let res = document.getElementById('res')
+        let num1 = parseFloat(document.getElementById('num1').value)
+        let num2 = parseFloat(document.getElementById('num2').value)
+        let texto = ''
+
+        if(document.getElementById('soma').checked){
+            texto = soma(num1, num2)
+        }
+        if(document.getElementById('subtracao').checked){
+            texto = subtracao(num1, num2)
+        }
+        if(document.getElementById('multiplicacao').checked){
+            texto = multiplicacao(num1, num2)
+        }
+        if(document.getElementById('divisao').checked){
+            texto = divisao(num1, num2)
+        }
+            res.innerHTML = texto
+    }
+    
+
+    //FUNÇÕES AQUI
+
+    function soma(x, y){
+        return (x + y)
+    }
+    function subtracao(x, y){ 
+        return (x - y)
+    }
+    function multiplicacao(x, y){
+        return (x * y)
+    }
+    function divisao(x, y){
+        return (x / y)
+    }
+
+</script>
+</html>
