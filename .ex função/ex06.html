@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    Digite um número inteiro: <input type="number" id="num">
+    <button onclick="main()">Enviar</button> <br>
+    Resultado: <div id="res" style="display: inline;"></div>
+</body>
+<script>
+    function main(){
+        let num = parseInt(document.getElementById('num').value)
+        let res = document.getElementById('res')
+
+        let resultado= perfeito(num)
+        res.innerHTML = resultado
+    }
+    function perfeito(n){
+        let divisores = []
+        for(let i = 1; i < n; i++){ // <n pq tem que ser dividores proprios (ou seja alem dele mesmo)
+            if(n % i == 0){
+                divisores.push(i)
+            }
+        }
+        let soma = divisores.reduce((a,b) => a + b, 0)
+
+        if(soma === n){
+            return `${n} é um número perfeito! Seus divisores próprios são: ${divisores.join(', ')}.`
+        }else {
+            return `${n} não é um número perfeito. Seus divisores próprios são: ${divisores.join(', ')} (Soma = ${soma})`
+        }
+    }
+    
+</script>
+</html>

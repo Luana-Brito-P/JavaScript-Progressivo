@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="main(); return false;">
+        <h1>Digite três números:</h1>
+        1° Número: <input type="number" id="num1" required> <br>
+        2° Número: <input type="number" id="num2" required> <br>
+        3° Número: <input type="number" id="num3" required> <br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    Resultados: <div id="res" ></div>
+</body>
+<script>
+    function main(){
+        let n1 = parseFloat(document.getElementById('num1').value)
+        let n2 = parseFloat(document.getElementById('num2').value)
+        let n3 = parseFloat(document.getElementById('num3').value)
+        let res = document.getElementById('res')
+
+       let resSoma= soma(n1,n2,n3)
+       let resMedia = media(n1, n2, n3)
+       res.innerHTML = `Soma = ${resSoma} <br> Média: ${resMedia.toFixed(2)}`
+
+    }
+
+    function soma(a, b, c){
+        return a + b + c
+    }
+    function media(a, b, c){
+        return soma(a,b,c) / 3
+        
+    }
+</script>
+</html>

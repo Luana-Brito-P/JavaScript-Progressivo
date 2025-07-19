@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+</head>
+<body>
+    <h1>Conversor de Temperatura</h1>
+
+<form onsubmit="main(); return false;">
+    
+        <p>Adicione a temperatura: </p>
+        <input type="number" id="graus" required>
+    
+        <p>Tipo de conversão:</p>
+        <input type="radio" name="temp" id="CtoF" required> Celsius para Farenheit <br>
+        <input type="radio" name="temp" id="FtoC" required> Faranheit para Celsius <br>
+    
+        <button type="submit">Converter</button>
+</form>
+<br>
+Conversão: <div id="res" style="display: inline;"></div>
+
+</body>
+<script>
+    function main(){
+        let res = document.getElementById('res')
+        let graus = parseFloat(document.getElementById('graus').value)
+
+        if(document.getElementById('CtoF').checked){
+           res.innerHTML = CelsiusToFarenheit(graus) + '° F'
+        }
+        else if(document.getElementById('FtoC').checked){
+            res.innerHTML = FarenheitToCelsius(graus) + "° C"
+        }
+        
+    }
+
+    function CelsiusToFarenheit(x){
+        return ((x * 9/5) + 32)
+    }
+    function FarenheitToCelsius(x){
+        return ((x - 32) * 5/9)
+    }
+</script>
+</html>

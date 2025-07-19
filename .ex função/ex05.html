@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>É Primo?</h1>
+    Digite um número inteiro: <input type="number" id="num">
+    <button onclick="main()">Enviar</button> <br>
+    <strong>Resposta: </strong><div id="res" style="display: inline;"></div>
+</body>
+<script>
+    function main(){
+        let num = parseInt(document.getElementById('num').value)
+        let res = document.getElementById('res')
+
+        let resPrimo = primo(num)
+        let listaPrimos = todosPrimos(num)
+        res.innerHTML = `${num} ${resPrimo}<br> <strong>Números primos até ${num}: </strong>${listaPrimos.join(', ')}`
+        
+    }
+
+    function primo(n){
+        let divisores = 0
+        
+        
+        for(let i = 1; i <= n; i++){
+            if(n % i == 0)
+                divisores++  
+        }
+
+        if(divisores == 2)
+            return "É Primo"
+        else
+            return "Não é Primo"
+    }
+
+    function todosPrimos(n){
+        let primos = []
+        for(let i = 1; i <= n; i ++){
+            if(primo(i) === "É Primo"){
+                primos.push(i)
+            }
+        }
+        return primos
+    }
+</script>
+</html>
