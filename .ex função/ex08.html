@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista</h1>
+    <p>Digite um número inteiro: </p><input type="number" id="num"> <br>
+    <button onclick="main()" style="margin:10px 0px ;">Enviar</button> <br>
+
+    <strong>Resposta:</strong><div id="res" style="font-family: monospace; font-size: 16px;"></div>
+</body>
+<script>
+        function main(){
+            let num = parseInt(document.getElementById('num').value)
+            let res = document.getElementById('res')
+            let texto = impressao(num)
+            res.innerText = texto 
+            
+        }
+        function impressao(n){
+           let resultado = ''
+            for(let i = 1; i <= n; i++){
+                let numeros = ''
+                for(let cont = 1; cont <= i; cont++){
+                    numeros += `${cont} `
+                }
+                resultado += numeros.trim() + '\n'
+            }
+            return resultado
+        }
+</script>
+</html>

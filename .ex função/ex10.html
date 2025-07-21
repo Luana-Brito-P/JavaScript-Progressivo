@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <h1>Imposto sobre vendas</h1>
+    <p>Informe o custo do produto (sem imposto): <input type="text" id="custo"></p>
+    <p>Informe o porcentual do imposto: <input type="text"id="porcentagem"></p> 
+    <button style="margin: 10px 0px;" onclick="main()">Calcular</button> <br>
+    <strong>Total = <div style="display: inline;" id="res"></div></strong>
+</body>
+<script>
+    function main(){
+        let custo = parseFloat(document.getElementById('custo').value)
+        let porcentagem = parseFloat(document.getElementById('porcentagem').value)
+        let res = document.getElementById('res')
+
+        if(isNaN(custo) || isNaN(porcentagem)){
+            alert('Valores inválido! Tente novamente')
+            return
+        }
+
+        let resultado = somaImposto(custo, porcentagem)
+        res.innerText = "R$ " + resultado.toFixed(2)
+    }
+
+    function somaImposto(custo, taxaImposto){
+        let imposto = custo * (taxaImposto/100)
+        return custo + imposto
+    }
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conversor de Horário</h1>
+    Digite o harário em notação de 24 horas para converter para 12 horas:  <br>
+    Horas: <input type="number" id="horas">
+    Minutos: <input type="number" id="min">
+    <button onclick="main()">Converter</button>
+</body>
+<script>
+
+    function main(){
+        let horas = parseInt(document.getElementById('horas').value)
+        let minutos = parseInt(document.getElementById('min').value)
+
+        if (isNaN(horas) || isNaN(minutos) || horas < 0 || horas > 23 || minutos < 0 || minutos > 60){
+            alert('Valores inválidos! Tente novamente.')
+            return
+        }
+
+        let [hora12, minuto, formato] = converterHora(horas, minutos)
+        mostrarHora(hora12, minuto, formato)
+    }
+    function mostrarHora(hora12, minuto, formato){
+        let texto = formato === 'A' ? 'A.M.' : 'P.M.' 
+        // se formato = A faça A.m. se nao P.m.
+        alert(`Hora convertida: ${hora12}:${minuto.toString().padStart(2, '0')} ${texto}`)
+    }
+    //.padStart(2, '0') -> completa a string com 2 caracteres '0', caso n haja 2 caracteres
+    function converterHora(horas, minutos){
+        let formato = 'A'
+        let hora12 = 0
+
+        if(horas === 0){
+            formato = 'A'
+        } else if (horas < 12){
+            hora12 = horas
+            formato = 'A'              
+        } else if (horas === 12){
+            hora12 = horas
+            formato = 'P'
+        } else{ // maior q 12
+            hora12 = horas - 12
+            formato = 'P'
+        }
+        return [hora12, minutos, formato]
+    }
+</script>
+</html>
