@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Vetor: <div id="vetor"></div> <br>
+    Número a ser localizado: <input type="number" id="num">
+    <button onclick="main()">Buscar</button> <br>
+    Reposta: <div id="res"></div>
+</body>
+<script>
+function main(){
+ var vetor = [10, 2, 5, 4, 3, 1, 11, 99, 76, 54, 23, 29, 49, 86, 66, 55, 44, 33, 22, 10];
+ var num = parseInt(document.getElementById("num").value);
+ var resposta = document.getElementById('resposta');
+ var vet = document.getElementById('vetor');
+
+ vet.innerHTML = vetor;
+ resposta.innerHTML = search(vetor,num)
+
+}
+
+function search (vetor, elemento){
+ if(vetor.lastIndexOf(elemento)>=0)
+  return "Está no índice "+vetor.lastIndexOf(elemento);//lastIndexOF(pega o ultimo número do elemento, o outro pega o primeiro, caso o elemento se repita dentro do array)
+ else
+  return "Não está no array"
+}
+</script>

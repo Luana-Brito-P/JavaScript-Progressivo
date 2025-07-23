@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="main()">
+</body>
+<script>
+    function main(){
+        let nAlunos = parseInt(prompt('Número de alunos na turma:'))
+        var alunos = new Array(nAlunos)
+
+        //Armazenando valores no array alunos
+        for(let i = 0; i < alunos.length; i++){
+            alunos[i] = parseInt(prompt(`Nota do aluno ${i+1}°: `))
+        }
+
+        //Somando os valores
+        var soma = 0
+        for(var i in alunos){
+            
+            soma += alunos[i]
+
+        }
+        //Exibição
+        document.write(`Média da turma = ${soma/nAlunos}`)
+    }
+</script>
+</html>

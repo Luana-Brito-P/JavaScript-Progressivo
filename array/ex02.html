@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" name="linguagens" value="Foi Quase!"> HTML<br>
+    <input type="radio" name="linguagens" value="Acertou!"> JavaScript<br>
+    <input type="radio" name="linguagens" value="Quase também!"> PHP<br>
+    <input type="radio" name="linguagens" value="C? Tá doido! Essa é foda!"> C<br>
+    <button onclick="checar()">Checar</button>
+</body>
+<script>
+    function checar(){
+        var radios = document.getElementsByName('linguagens') 
+        
+        for(let i in radios){
+            if(radios[i].checked){
+                alert(radios[i].value)
+            }
+        }
+    }
+    
+</script>
+</html>

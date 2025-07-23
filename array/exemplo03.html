@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="main()">
+    <script>
+        function main(){
+            var vetor = [10,2,5,4,3,1]
+
+            document.write("Vetor: " + vetor + "<br />");
+            document.write("Chamando a função ordena()..."+ "<br />");
+            vetor.sort(funcaoOrdena) // ou ((a,b) => a -b)
+            document.write("Vetor: " + vetor + "<br />");
+        }
+        function funcaoOrdena(x, y){
+            return x - y // 10 - 2 = 8 positivo(vem depois)
+        }
+    </script>
+
+<!-- 
+ Resumindo
+A função que você passa para .sort() não precisa usar if, só precisa retornar um número que represente a comparação. Ou seja: essa regra já está embutida no funcionamento do .sort().
+
+O JavaScript já sabe o que fazer com esse número:
+
+Se for < 0 → troca a ordem para colocar o menor primeiro.
+
+Se for > 0 → troca a ordem para colocar o maior depois.
+
+Se for 0 → mantém como está.
+A função sempre irá puxar os elementos do array em pares para fazer a comparação
+-->
+</body>
+</html>
