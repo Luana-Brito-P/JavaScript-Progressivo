@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let qtde = parseInt(prompt('Quantos números vc deseja inserir ao array?'))
+
+    let vetor = new Array(qtde)
+    for(let i = 0; i < qtde; i++){
+        let valor = prompt(`Digite o ${i + 1} valor:`)
+        vetor[i] = valor
+    }
+    document.write('Array original: ' + vetor + '<br>')
+    document.write('Array invertido: ' + vetor.reverse())
+</script>
+</html>

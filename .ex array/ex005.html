@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let qtde = parseInt(prompt('Quantos números vc deseja inserir ao array?'))
+
+    let vetor = new Array(qtde)
+    for(let i = 0; i < qtde; i++){
+        let valor = Number(prompt(`Digite o ${i + 1} valor:`))
+        vetor[i] = valor
+
+    }
+    let resultado = bubbleSort(vetor)
+    document.write(resultado)
+
+    function bubbleSort(v){
+        for(let i = 0; i < v.length; i++){
+            for(let j = 0; j < (v.length - 1 - i); j++){
+                if(v[j] > v[j+1]){
+                    let aux = v[j]
+                    v[j] = v[j+1]
+                    v[j+1] = aux
+                }
+            }
+        }
+        return v
+    }
+
+
+</script>
+</html>
+
+<!-- 
+em um array de 3 elemento
+ se j for 2, o v.length - 1 (3 - 1 = 2)
+ j n sera menor q v.length
+ ou seja ele para ai, q é oq precisa acontecer, pq se nao ele iria comparar se j e menor q v.length (2 com 3), oq seria válido, e faria a comparação de v[2] com v[3]. Porém v[3] não existe;
+ Ou seja, v[j + 1], o j precisa parar antes do último índice.
+
+ o -i faz cpm que a cada volta o ultimo valor(ja ordenado) seja ignorado.
+-->

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="main()">
+    <script>
+        function main(){
+            let vetor = new Array()
+            let entrada
+
+            do{
+                entrada = prompt('Informe um número para ser adicionado ao seu array?(ou deixe em branco para encerrar)')
+                    if(entrada !== '' && entrada !== null)
+                        vetor.push(parseInt(entrada))
+            }while(entrada !== '' && entrada !== null)
+
+            let num = Number(prompt('Qual número vc deseja saber o índice?'))
+
+            let localnum = encontrarIndice(vetor, num)
+            
+            document.write('Array original: ' + vetor.join(' ') + '<br>')
+            if(localnum.length > 0){
+                document.write('O número '+ num + ' aparece nos índices: '+ localnum.join(' '))
+            }else{
+                document.write('O número '+ num + 'não foi encontrado no Array.')
+            }
+        }
+        
+
+        function encontrarIndice(vetor, num){
+            let encontrados = [] 
+            for(let i = 0; i < vetor.length; i++){
+                if(vetor[i] === num)
+                    encontrados.push(i)
+            }
+            return encontrados
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="main()">
+    <div id="res"></div>
+</body>
+<script>
+    function main(){
+        let num = new Array(3)
+        num[0] = Number(prompt('Digite um número:'))
+        num[1] = Number(prompt('Digite um segundo número:'))
+        num[2] = Number(prompt('Digite um terceiro número'))
+
+        document.write('Array: ' + num + '<br>')
+        num.sort(ordernarArray)
+        document.write('Array ordenado: ' + num)
+    }
+    function ordernarArray(x, y){
+        return x - y
+    }
+</script>
+</html>

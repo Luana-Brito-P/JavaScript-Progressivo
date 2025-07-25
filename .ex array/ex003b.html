@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="main()">
+   
+</body>
+<script>
+    function main(){
+        let num = new Array(3)
+        num[0] = Number(prompt('Digite um número:'))
+        num[1] = Number(prompt('Digite um segundo número:'))
+        num[2] = Number(prompt('Digite um terceiro número'))
+
+        document.write('Array orignal: ' + num + '<br>')
+        let inverso = num.reverse() //mais facil
+        document.write('Array invertido: ' + inverso)
+    }
+
+    
+    
+   
+</script>
+</html>

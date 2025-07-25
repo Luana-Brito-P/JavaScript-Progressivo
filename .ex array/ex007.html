@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="main()">
+    
+</body>
+<script>
+    function main(){
+        let n = parseInt(prompt('Digite um número:'))
+        let resfib = fibonacci(n)
+        document.write('Fibonacci: '+ resfib)
+    }
+    function fibonacci(n){
+        let fib = [0, 1]
+        // i será dois pois ja existem os índices 0 e 1
+        for(let i = 2; i < n; i++){
+            fib[i] = fib[i-1] + fib[i-2]
+            //o novo elemento do array fib,será a soma dos dois fibs anteriores
+        }
+        return fib
+    }
+</script>
+</html>

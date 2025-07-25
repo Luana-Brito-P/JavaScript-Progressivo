@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body onload="main()">
+
+</body>
+<script>
+    function main(){
+        let lin = parseInt(prompt('Informe o número de linhas: '))
+        let col = parseInt(prompt('Informe o número de colunas: '))
+
+        let matriz = new Array(lin)
+        let valor = 1
+
+        for(let i = 0; i < lin; i++){
+            matriz[i] = new Array(col)
+           for(let j = 0; j < col; j++){
+                matriz[i][j] = valor
+                valor++
+                document.write(matriz[i][j] + ' ')
+           }
+           document.write('<br>')
+        }
+         
+        
+        
+
+    }
+</script>
+</html>
