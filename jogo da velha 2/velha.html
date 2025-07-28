@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="velha.css">
+</head>
+<body onload="inicia()">
+    <main>
+        <h1>Jogo da Velha</h1>
+        <hr>
+        <div id="exibtab">tabuleiro</div>
+        <hr>
+        linha: <input type="number" id="lin" min="1" max="3"><br>
+        coluna: <input type="number" id="col" min="1" max="3"><br>
+        <button onclick="jogar()">Marcar</button>
+        <hr>
+        <div id="aviso"></div>
+        <button onclick="location.reload()">Jogar novamente?</button>
+    </main>
+</body>
+<script src="velha.js"></script>
+</html>

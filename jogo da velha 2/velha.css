@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f7f7;
+}
+
+main {
+    display: flex;
+    width: 250px;
+    flex-direction: column;
+    gap: 6px;
+}
+
+h1 {
+    text-align: center;
+}
+
+hr {
+    font-weight: bold;
+    height: 3px;
+    background: black;
+    margin-bottom: 10px;
+}
+
+#exibtab{
+    display: flex;
+    justify-content: center;
+
+    padding: 5px;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid grey
+}
+
+ 
