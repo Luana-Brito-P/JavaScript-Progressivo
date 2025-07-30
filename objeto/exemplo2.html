@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="obj()">
+    <script>
+        function obj(){
+            var meuCarro = {
+                modelo: 'Corolla',
+                ano: 2018,
+                exibeInfo : function(){
+                    alert("Meu carro é do modelo " + this.modelo + " e ano " + this.ano)
+                    //this para acessar a variavel interna do objeto
+                }
+            }
+            //chamadas
+           // delete meuCarro.modelo para apagar propriedades
+            meuCarro.exibeInfo()
+           
+        }
+    </script>
+</body>
+</html>
