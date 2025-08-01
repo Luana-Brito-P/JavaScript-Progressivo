@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id = "meuRetangulo" width = "600" height = "400"
+      style = "border: 1px solid black;">
+        O Canvas não está ativado em seu Browser
+    </canvas>
+    <script>
+        var canvas = document.getElementById("meuRetangulo");
+        var context = canvas.getContext("2d")
+
+        var l = 100;
+        var L = 20 + (l/2);//centro do outro quadrado
+
+        context.strokeRect(20,20,l,l)//qd1
+        context.strokeRect(L,L,l,l)//qd2
+
+        //linhas q ligam os quadrados
+        context.beginPath()
+        context.moveTo(20,20)//inicia
+        context.lineTo(L,L)//linha em cima esquerda
+        context.stroke()
+
+        //Criar outro caminho para iniciar de outro ponto
+        //linha em baixo esquerda
+        context.beginPath()
+        context.moveTo(20,20+l) //20+l no y vai pra baixo
+        context.lineTo(L,L+l)
+        context.stroke()
+
+        //linha em cima direita
+        context.beginPath()
+        context.moveTo(20+l,20) // 20+l no x vai mais pra direita
+        context.lineTo(L+l,L)
+        context.stroke()
+
+        // em baixo direita
+        context.beginPath()
+        context.moveTo(20+l, 20+l)
+        context.lineTo(L+l,L+l)
+        context.stroke()
+
+    </script>
+</body>
+</html>

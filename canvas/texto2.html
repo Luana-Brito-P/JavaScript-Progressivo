@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+ <head>
+    <title>Apostila JavaScript Progressivo</title>
+ </head>
+ <body>
+  <canvas id = "meuCanvas" width = "600" height = "400"
+      style = "border: 1px solid black;">
+  O Canvas não está ativado em seu Browser
+ </canvas>
+ <script type="text/javascript">
+  var canvas = document.getElementById('meuCanvas');
+  var contexto = canvas.getContext('2d');
+
+  contexto.font='100px arial';
+  contexto.lineWidth=4;
+
+  //Primeiro J, preenchido de azul
+    contexto.fillStyle='blue'; //preenchido
+    contexto.fillText('J',50,150); 
+
+  //Segundo J, com stroke (traço) verde
+  contexto.strokeStyle='green' //contorno
+  contexto.strokeText('J',125,150);
+
+  //Unindo os dois
+  contexto.fillText('J',200,150); 
+  contexto.strokeText('J',200,150); 
+ </script>
+ </body>
+</html>

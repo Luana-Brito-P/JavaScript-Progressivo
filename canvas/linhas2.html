@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <body>
+  <canvas id = "meuRetangulo" width = "600" height = "400"
+      style = "border: 1px solid black;">
+  O Canvas não está ativado em seu Browser
+ </canvas>
+ <script>
+    var canvas = document.getElementById("meuRetangulo");
+    var context = canvas.getContext("2d")
+
+    context.beginPath()
+    context.moveTo(20,20)
+    context.lineTo(200,20) // para direita
+    context.lineTo(200, 100)// para baixo
+    context.lineTo(20,100)//para esquerda
+    context.lineTo(20,20) // de cima pra baixo
+
+    context.stroke()
+ </script>
+</body>
+</html>

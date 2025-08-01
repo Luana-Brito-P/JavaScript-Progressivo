@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <canvas id = "meuCanvas" width = "600" height = "400"
+      style = "border: 1px solid black;">
+  O Canvas não está ativado em seu Browser
+ </canvas>
+ <script>
+    var canvas = document.getElementById("meuCanvas");
+    var context = canvas.getContext("2d")
+
+    context.beginPath()
+    context.arc(300,200,100, 0, Math.PI/2,true)
+    context.stroke()
+
+    //arc(x, y, raio, inicio, fim, antihorario(por padrao vem false, campo opcional))
+    // tamanho: (600,400) centro da imagem (300,200)
+    //raio = 100
+    //inicio = 0 fim pi/2 no sentido horario
+ </script>
+</body>
+</html>

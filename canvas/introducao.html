@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="meuRetangulo" width="300" height="200" style = "border: 1px solid black;">
+        O canvas não está ativado em seu Browser
+    </canvas>
+</body>
+<script>
+    let canvas = document.getElementById('meuRetangulo')
+    let context = canvas.getContext('2d') // serve para definir o contexto de nosso uso do canvas, ou seja, para que e como queremos usar a região.
+
+    context.fillStyle = 'Blue' //Pintando; leia o de baixo e dps volte aqui
+
+    context.fillRect(10, 20,270,150) // desenha, os dois primeiros paramentros é o ponto inicial (x,y) e o segundo é o final, por padrão ele vem pintado de preto, pra alterar a cor use fillStyle antes do fillRect
+
+    context.strokeStyle = 'red' // pintar borda
+    context.lineWidth = 3 // espessura da borda
+    context.strokeRect(10, 20, 270, 150); //adicionar as modificações de borda
+
+</script>
+</html>

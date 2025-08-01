@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="meuCanvas" width="200" height="200" style = "border: 1px solid black;">
+        O canvas não está ativado em seu Browser
+    </canvas>
+    <script>
+        let canvas = document.getElementById('meuCanvas')
+        let contexto = canvas.getContext('2d')
+
+        contexto.shadowBlur = 30 //0 é o nível máximo de sombra, totalmente preenchido. Espalhamento da sombra.
+        contexto.shadowOffsetX = 4 //deslocamento no eixo X(horizontal)
+        contexto.shadowOffsetY = 5 //deslocamneto no eixo y (vertical)
+        contexto.shadowColor = 'red'
+        contexto.fillRect(50,50,100,100)//inicio e fim do quadrado
+
+        //Para fazer uma sombra em todos os lados m forneca shadowoffset
+    </script>
+</body>
+</html>

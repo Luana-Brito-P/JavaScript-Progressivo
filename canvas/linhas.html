@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <body>
+  <canvas id = "meuRetangulo" width = "600" height = "400"
+      style = "border: 1px solid black;">
+  O Canvas não está ativado em seu Browser
+ </canvas>
+</body>
+<script>
+    let canvas = document.getElementById('meuRetangulo')
+    let context = canvas.getContext('2d')
+
+    context.beginPath() //iniciar caminho
+    context.moveTo(0,0) // se move para o ponto inicial
+    context.lineTo(600,400) //traça uma linha do ponto inicial ate este
+    context.stroke()//para desenhar
+
+</script>
+</html>
